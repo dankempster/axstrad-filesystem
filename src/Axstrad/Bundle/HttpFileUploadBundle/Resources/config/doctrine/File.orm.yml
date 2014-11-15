@@ -16,3 +16,6 @@ Axstrad\Bundle\HttpFileUploadBundle\Entity\File:
         path:
             type: string
             scale: 255
+        fileUpdatedAt:
+            type: datetime
+            nullable: true

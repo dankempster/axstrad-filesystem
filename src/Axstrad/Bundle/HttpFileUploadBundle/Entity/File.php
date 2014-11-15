@@ -19,9 +19,62 @@ class File extends BaseFile
     protected $id;
 
     /**
+     * @var Datetime
+     */
+    protected $fileUpdatedAt;
+
+    /**
      * @var null|string
      */
     protected $oldPath;
+
+    /**
+     * Get fileUpdatedAt
+     *
+     * @param null|string $format A format excepted by
+     *        {@link http://www.php.net/manual/en/function.date.php date()}
+     * @return string|DateTime A DateTime object if  is NULL, a datetime string
+     *         otherwise.
+     * @see setFileUpdatedAt
+     */
+    public function getFileUpdatedAt($format = null)
+    {
+        if ($this->fileUpdatedAt instanceof \DateTime) {
+            if (!empty($format)) {
+                return $this->fileUpdatedAt->format($format);
+            }
+            else {
+                return clone $this->fileUpdatedAt;
+            }
+        }
+        else {
+            return null;
+        }
+    }
+
+    /**
+     * Set fileUpdatedAt
+     *
+     * @param null|DateTime|string $fileUpdatedAt A DateTime Object or a datetime string
+     *        that's excepted by
+     *        {@link http://www.php.net/manual/en/function.date.php date()}
+     * @return self
+     * @see getFileUpdatedAt
+     */
+    public function setFileUpdatedAt($fileUpdatedAt)
+    {
+        if ($fileUpdatedAt === null) {
+            $this->fileUpdatedAt = null;
+        }
+        elseif ($fileUpdatedAt instanceof \DateTime) {
+            $this->fileUpdatedAt = clone $fileUpdatedAt;
+        }
+        else {
+            $this->fileUpdatedAt = new \DateTime((string) $fileUpdatedAt);
+        }
+        return $this;
+    }
+
 
     /**
      */
