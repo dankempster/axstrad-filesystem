@@ -19,6 +19,10 @@
         <testsuite name="Axstrad\TestBundle">
             <file>./src/Axstrad/Bundle/TestBundle/Functional/WebTestCase.php</file>
         </testsuite>
+
+        <testsuite name="Axstrad\HttpFileUploadBundle">
+            <directory suffix="Test.php">./src/Axstrad/Bundle/HttpFileUploadBundle/Tests/</directory>
+        </testsuite>
     </testsuites>
 
     <logging>

@@ -1,0 +1,18 @@
+Axstrad\Bundle\HttpFileUploadBundle\Entity\File:
+    type: mappedSuperclass
+    table: file
+    lifecycleCallbacks:
+        prePersist: [ preUpload ]
+        postPersist: [ upload ]
+        preUpdate: [ preUpload ]
+        postUpdate: [ upload ]
+        postRemove: [ removeUpload ]
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        path:
+            type: string
+            scale: 255

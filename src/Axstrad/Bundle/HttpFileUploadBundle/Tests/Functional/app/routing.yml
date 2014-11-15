@@ -1,0 +1,9 @@
+test:
+    pattern: /upload-file
+    defaults:
+        _controller: AxstradTestHttpFileUploadBundle:Default:uploadFile
+
+test2:
+    pattern: /create-event
+    defaults:
+        _controller: AxstradTestHttpFileUploadBundle:Default:createEvent
