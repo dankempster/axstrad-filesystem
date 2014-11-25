@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\MappedSuperclass()
  */
-class BaseEntity implements
+abstract class BaseEntity implements
     Entity
 {
     use IntegerIdTrait;
