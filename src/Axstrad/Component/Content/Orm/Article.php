@@ -1,15 +1,13 @@
 <?php
-namespace Axstrad\Component\Content\Entity;
+namespace Axstrad\Component\Content\Orm;
 
-use Axstrad\Component\Content\Article as ArticleInterface;
-use Axstrad\Component\Content\Traits\Article as ArticleTrait;
-
+use Axstrad\Component\Content\Model\Article as BaseArticle;
+use Axstrad\Component\DoctrineOrm\Entity\IntegerIdTrait;
 
 /**
- * Axstrad\Component\Content\Entity\Article
+ * Axstrad\Component\Content\Orm\Article
  */
-abstract class Article extends BaseEntity implements
-    ArticleInterface
+abstract class Article extends BaseArticle
 {
-    use ArticleTrait;
+    use IntegerIdTrait;
 }

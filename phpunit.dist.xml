@@ -54,12 +54,16 @@
             <file>./src/Axstrad/Bundle/TestBundle/Functional/WebTestCase.php</file>
         </testsuite>
 
-        <testsuite name="Axstrad\WebFrameworkBundle">
-            <directory suffix="Test.php">./src/Axstrad/Bundle/WebFrameworkBundle/Tests/</directory>
-        </testsuite>
-
         <testsuite name="Axstrad\DoctrineExtensionsBundle">
             <directory suffix="Test.php">./src/Axstrad/Bundle/DoctrineExtensionsBundle/Tests/</directory>
+        </testsuite>
+
+        <testsuite name="Axstrad\PageBundle">
+            <directory suffix="Test.php">./src/Axstrad/Bundle/PageBundle/Tests/</directory>
+        </testsuite>
+
+        <testsuite name="Axstrad\WebFrameworkBundle">
+            <directory suffix="Test.php">./src/Axstrad/Bundle/WebFrameworkBundle/Tests/</directory>
         </testsuite>
     </testsuites>
 

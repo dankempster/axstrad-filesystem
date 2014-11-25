@@ -33,15 +33,20 @@ trait Copy
      * @param string $copy
      * @return self
      */
-    public function setCopy($copy)
+    public function setCopy($copy = null)
     {
-        if (!is_scalar($copy)) {
+        if (is_null($copy)) {
+            $this->copy = null;
+        }
+        elseif (!is_scalar($copy)) {
             throw InvalidArgumentException::create(
                 'string (or scalar)',
                 $copy
             );
         }
-        $this->copy = (string) $copy;
+        else {
+            $this->copy = (string) $copy;
+        }
         return $this;
     }
 

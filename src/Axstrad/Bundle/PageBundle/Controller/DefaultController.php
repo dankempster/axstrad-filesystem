@@ -2,18 +2,28 @@
 
 namespace Axstrad\Bundle\PageBundle\Controller;
 
+use Axstrad\Bundle\PageBundle\Entity\Page;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Axstrad\Bundle\PageBundle\Controller\DefaultController
+ */
 class DefaultController extends Controller
 {
     /**
-     * @Route("/hello/{name}")
-     * @Template()
+     * @ParamConverter("page")
      */
-    public function indexAction($name)
+    public function indexAction(Page $page)
     {
-        return array('name' => $name);
+        return new Response(
+            $this->renderView(
+                'AxstradPageBundle:Default:index.html.twig',
+                array(
+                    'page' => $page,
+                )
+            )
+        );
     }
 }

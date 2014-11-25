@@ -1,0 +1,2 @@
+axstrad_page:
+    resource: '@AxstradPageBundle/Resources/config/routing.yml'

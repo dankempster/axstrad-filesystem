@@ -1,15 +1,14 @@
 <?php
-namespace Axstrad\Component\Content\Entity;
+namespace Axstrad\Component\Content\Orm;
 
-use Axstrad\Component\Content\Copy as CopyInterface;
-use Axstrad\Component\Content\Traits\Copy as CopyTrait;
+use Axstrad\Component\Content\Model\Copy as BaseCopy;
+use Axstrad\Component\DoctrineOrm\Entity\IntegerIdTrait;
 
 
 /**
- * Axstrad\Component\Content\Entity\Copy
+ * Axstrad\Component\Content\Orm\Copy
  */
-abstract class Copy extends BaseEntity implements
-    CopyInterface
+abstract class Copy extends BaseCopy
 {
-    use CopyTrait;
+    use IntegerIdTrait;
 }

@@ -1,0 +1,29 @@
+Axstrad\Bundle\PageBundle\Entity\Page:
+    type: entity
+    table: axstrad_page
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        active:
+            type: boolean
+            options:
+                default: false
+        slug:
+            type: string
+            length: 128
+            gedmo:
+                slug:
+                    separator: -
+                    style: lower
+                    fields:
+                        - heading
+    axstrad:
+        activatable:
+            field_name: active
+    indexes:
+        search_idx:
+            columns: slug
+
