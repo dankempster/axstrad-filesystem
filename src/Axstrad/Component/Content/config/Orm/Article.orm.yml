@@ -1,0 +1,11 @@
+Axstrad\Component\Content\Orm\Article:
+    type: mappedSuperclass
+    fields:
+        heading:
+            type: string
+            length: 255
+        copy:
+            type: text
+            nullable: true
+
+
