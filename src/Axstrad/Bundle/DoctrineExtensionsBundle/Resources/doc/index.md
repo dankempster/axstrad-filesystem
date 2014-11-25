@@ -35,9 +35,9 @@ doctrine:
         ...other orm config...
         filters:
             activatable:
-            class: Axstrad\DoctrineExtensions\Activatable\Filter\OrmFilter
-            enabled: true
-            
+                class: Axstrad\DoctrineExtensions\Activatable\Filter\OrmFilter
+                enabled: true
+
 axstrad_doctrine_extensions:
     orm:
         default:
@@ -47,7 +47,6 @@ axstrad_doctrine_extensions:
 ### Set Up Entity
 Simply add the Activatable annotation to you entity's class docblock and define a boolean property to use as the "active" field.
 ```
-<?php
 // ./src/Acme/DemoBundle/Entity/Page
 
 use Axstrad\DoctrineExtensions\Mapping\Annotation as Axstrad;
@@ -55,15 +54,15 @@ use Axstrad\DoctrineExtensions\Mapping\Annotation as Axstrad;
 /**
  * ...your other annotations and documentation...
  * @Axstrad\Activatable(fieldName="active")
- */ 
- class Page 
- {    
+ */
+ class Page
+ {
     /**
      * @var boolean
      * @ORM\Column(type="boolean")
-     */ 
+     */
     protected $active;
-    
+
     // the rest of your class' code
  }
 ```
@@ -73,7 +72,6 @@ To help you along, I've included various abstract classes and traits. See exampl
 #### Extending a base class
 Axstrad\DoctrineExtensions provides an abstract class you can use; Which defines the $activte property and a get and set method.
 ```
-<?php
 // ./src/Acme/DemoBundle/Entity/Page
 
 use Axstrad\DoctrineExtensions\Activatable\ActivatableEntity;
@@ -82,7 +80,7 @@ use Axstrad\DoctrineExtensions\Mapping\Annotation as Axstrad;
 /**
  * @Axstrad\Activatable(fieldName="active")
  * ...your other annotations and documentation...
- */ 
+ */
 class Page extends ActivatableEntity
 {
     // Your class' code
@@ -92,7 +90,6 @@ class Page extends ActivatableEntity
 #### Using a trait
 Axstrad\DoctrineExtensions also provides a trait. Like the abstract class it defines the $activte property and a get and set method.
 ```
-<?php
 // ./src/Acme/DemoBundle/Entity/Page
 
 use Axstrad\DoctrineExtensions\Activatable\ActivatableEntity;
@@ -101,11 +98,11 @@ use Axstrad\DoctrineExtensions\Mapping\Annotation as Axstrad;
 /**
 * @Axstrad\Activatable(fieldName="active")
 * ...your other annotations and documentation...
-*/ 
-class Page 
+*/
+class Page
 {
     use ActivatableTrait;
-    
+
     // Your class' code
 }
 ```
