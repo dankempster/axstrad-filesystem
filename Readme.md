@@ -14,7 +14,7 @@ A collection of small components and bundles I find useful.
 
 ### Doctrine Extensions
 
-- Activatable
+ - Activatable
 
 ### Symfony Bundles
 
