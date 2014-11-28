@@ -1,7 +1,7 @@
 <?php
 namespace Axstrad\Bundle\PageAdminBundle\Tests\Functional\DataFixtures\ORM;
 
-use Axstrad\Bundle\PageAdminBundle\Entity\Page;
+use Axstrad\Bundle\PageBundle\Entity\Page;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Cmf\Bundle\SeoBundle\Model\SeoMetadata;

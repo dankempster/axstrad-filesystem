@@ -18,6 +18,13 @@ class PageAdminTest extends WebTestCase
         $this->client = self::createClient();
     }
 
+    public function loadBundlesFixtures()
+    {
+        return array(
+            'AxstradTestPageAdminBundle',
+        );
+    }
+
     public function testContentList()
     {
         $crawler = $this->client->request('GET', '/admin/axstrad/page/page/list');
@@ -28,7 +35,7 @@ class PageAdminTest extends WebTestCase
 
     public function testContentEdit()
     {
-        $crawler = $this->client->request('GET', '/admin/axstrad/page/page/cms/pages/about-us/edit');
+        $crawler = $this->client->request('GET', '/admin/axstrad/page/page/1/edit');
         $res = $this->client->getResponse();
         $this->assertEquals(200, $res->getStatusCode());
         $this->assertCount(1, $crawler->filter('input[value="about-us"]'));
