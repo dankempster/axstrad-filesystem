@@ -3,7 +3,7 @@ namespace Axstrad\Component\Content\Traits;
 
 
 /**
- * Axstrad\Bundle\ContentBundle\Trait\Article
+ * Axstrad\Bundle\ContentBundle\Traits\Article
  */
 trait Article
 {
