@@ -33,6 +33,7 @@ class PageAdmin extends Admin
             ->with('form.group_general')
                 ->add('heading', 'text')
                 ->add('copy', 'textarea')
+                ->add('slug', 'text')
             ->end()
         ;
     }
