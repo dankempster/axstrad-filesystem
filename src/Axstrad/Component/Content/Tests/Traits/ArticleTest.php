@@ -15,41 +15,11 @@ class ArticleTest extends TestCase
 {
     public function setUp()
     {
-        $this->fixture = $this->getMockForTrait('Axstrad\Component\Content\Traits\Article', array('My Heading', 'My copy.'));
+        $this->fixture = $this->getMockForTrait('Axstrad\Component\Content\Traits\Article');
     }
 
     /**
-     * @covers Axstrad\Component\Content\Traits\Article::__construct
-     */
-    public function testConstructorSetsHeading()
-    {
-        $this->assertEquals(
-            'My Heading',
-            $this->fixture->getHeading()
-        );
-    }
-
-    /**
-     * @covers Axstrad\Component\Content\Traits\Article::__construct
-     */
-    public function testConstructorSetsCopy()
-    {
-        $this->assertEquals(
-            'My copy.',
-            $this->fixture->getCopy()
-        );
-    }
-
-    /**
-     * @covers Axstrad\Component\Content\Traits\Article::__construct
-     */
-    public function testConstructorAcceptsOnlyHeading()
-    {
-        $fixture = $this->getMockForTrait('Axstrad\Component\Content\Traits\Article', array('My Heading'));
-        $this->assertNull($fixture->getCopy());
-    }
-
-    /**
+     * @covers Axstrad\Component\Content\Traits\Article::getHeading
      * @covers Axstrad\Component\Content\Traits\Article::setHeading
      */
     public function testCanSetHeading()
@@ -74,6 +44,7 @@ class ArticleTest extends TestCase
 
     /**
      * @covers Axstrad\Component\Content\Traits\Article::getCopy
+     * @covers Axstrad\Component\Content\Traits\Article::setCopy
      */
     public function testCanSetCopy()
     {
@@ -96,7 +67,8 @@ class ArticleTest extends TestCase
     }
 
     /**
-     * @covers Axstrad\Component\Content\Traits\Article::getCopy
+     * @covers Axstrad\Component\Content\Traits\Article::setCopy
+     * @uses Axstrad\Component\Content\Traits\Article::getCopy
      */
     public function testCopyIsTypeCastToString()
     {
@@ -109,6 +81,7 @@ class ArticleTest extends TestCase
 
     /**
      * @covers Axstrad\Component\Content\Traits\Article::setCopy
+     * @uses Axstrad\Component\Content\Traits\Article::getCopy
      */
     public function testCanSetCopyToNull()
     {

@@ -14,7 +14,9 @@ class LoadPageData implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $aboutUs = new Page('About Us', '<p>A page about us.</p>');
+        $aboutUs = new Page();
+        $aboutUs->setHeading('About Us');
+        $aboutUs->setCopy('<p>A page about us.</p>');
         $aboutUs->setSlug('about-us');
         $aboutUs->setActive(true);
         $manager->persist($aboutUs);

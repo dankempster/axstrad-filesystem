@@ -16,18 +16,6 @@ trait Copy
 
 
     /**
-     * Trait constructor
-     *
-     * @param string $copy
-     * @return void
-     * @uses setCopy
-     */
-    public function __construct($copy)
-    {
-        $this->setCopy($copy);
-    }
-
-    /**
      * Set Copy
      *
      * @param string $copy

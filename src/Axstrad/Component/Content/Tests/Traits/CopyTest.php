@@ -14,24 +14,12 @@ class CopyTest extends TestCase
 {
     public function setUp()
     {
-        $this->fixture = $this->getMockForTrait('Axstrad\Component\Content\Traits\Copy', array('My copy.'));
+        $this->fixture = $this->getMockForTrait('Axstrad\Component\Content\Traits\Copy');
     }
 
     /**
-     * @covers Axstrad\Component\Content\Traits\Copy::__construct
      * @covers Axstrad\Component\Content\Traits\Copy::getCopy
-     */
-    public function testConstructorSetsCopy()
-    {
-        $this->assertEquals(
-            'My copy.',
-            $this->fixture->getCopy()
-        );
-    }
-
-    /**
      * @covers Axstrad\Component\Content\Traits\Copy::setCopy
-     * @depends testConstructorSetsCopy
      */
     public function testCanSetCopy()
     {
@@ -44,7 +32,6 @@ class CopyTest extends TestCase
 
     /**
      * @covers Axstrad\Component\Content\Traits\Copy::setCopy
-     * @depends testConstructorSetsCopy
      */
     public function testSetCopyReturnsSelf()
     {
@@ -56,7 +43,7 @@ class CopyTest extends TestCase
 
     /**
      * @covers Axstrad\Component\Content\Traits\Copy::setCopy
-     * @depends testConstructorSetsCopy
+     * @depends testCanSetCopy
      */
     public function testCopyIsTypeCastToString()
     {
