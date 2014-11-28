@@ -44,6 +44,12 @@ class AppKernel extends AbstractAxstradKernel
             // Helper bundles - help write test code quicker
             new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
+            // SEO Bundles
+            new \Sonata\SeoBundle\SonataSeoBundle(),
+            new \Symfony\Cmf\Bundle\SeoBundle\CmfSeoBundle(),
+            new \Axstrad\Bundle\SeoBundle\AxstradSeoBundle(),
+            // new Burgov\Bundle\KeyValueFormBundle\BurgovKeyValueFormBundle(),
+
             // Axstrad Bundles
             new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new \Axstrad\Bundle\DoctrineExtensionsBundle\AxstradDoctrineExtensionsBundle(),

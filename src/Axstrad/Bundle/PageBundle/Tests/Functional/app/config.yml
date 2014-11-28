@@ -37,6 +37,11 @@ doctrine:
                 dir: "%kernel.root_dir%/../../../../../Component/Content/config/Orm"
                 alias: AxstradContent # this one is optional and will default to the name set for the mapping
                 is_bundle: false
+            CmfSeoBundle:
+                type: xml
+                prefix: Symfony\Cmf\Bundle\SeoBundle\Model
+                dir: Resources/config/doctrine-model
+                alias: CmfSeo # this one is optional and will default to the name set for the mapping
         filters:
             activatable:
                 class:   Axstrad\DoctrineExtensions\Activatable\Filter\OrmFilter
@@ -60,3 +65,30 @@ stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
+
+# Sonata SEO Bundle
+sonata_seo:
+    page:
+        # Default page title
+        title: "AxstradTestPageBundle"
+        # Default meta data
+        metas:
+            name:
+                # keywords: "foo bar"
+                # description: AxstradTestPageBundle
+                robots: "index, follow"
+            http-equiv:
+                'Content-Type': "text/html; charset=utf-8"
+                'X-Ua-Compatible': "IE=Edge"
+        head:
+            'xmlns': "http://www.w3.org/1999/xhtml"
+            # 'xmlns:og': "http://opengraphprotocol.org/schema/"
+            # 'xmlns:fb': "http://www.facebook.com/2008/fbml"
+
+# Symfony SEO Bundle : extends Sonata SEO Bundle
+cmf_seo:
+    content_key: document
+    persistence:
+        orm: true
+    # Standard page title
+    title: "%%content_title%% | AxstradTestPageBundle"

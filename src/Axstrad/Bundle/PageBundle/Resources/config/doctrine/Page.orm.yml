@@ -20,6 +20,13 @@ Axstrad\Bundle\PageBundle\Entity\Page:
                     style: lower
                     fields:
                         - heading
+    oneToOne:
+        seoMetadata:
+            targetEntity: Symfony\Cmf\Bundle\SeoBundle\Model\SeoMetadata
+            joinColumn:
+                name: seoMetadataId
+                referencedColumnName: id
+                onDelete: CASCADE
     axstrad:
         activatable:
             field_name: active
