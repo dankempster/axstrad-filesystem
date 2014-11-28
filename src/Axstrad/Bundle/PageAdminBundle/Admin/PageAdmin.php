@@ -1,5 +1,5 @@
 <?php
-namespace Axstrad\Bundle\PageBundle\Admin;
+namespace Axstrad\Bundle\PageAdminBundle\Admin;
 
 use Axstrad\Bundle\PageBundle\Entity\Page;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Admin\Admin;
 
 
 /**
- * Axstrad\Bundle\PageBundle\Admin\PageAdmin
+ * Axstrad\Bundle\PageAdminBundle\Admin\PageAdmin
  */
 class PageAdmin extends Admin
 {
