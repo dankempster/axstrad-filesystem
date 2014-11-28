@@ -15,7 +15,8 @@ class LoadData implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $page = new Page('Testing');
+        $page = new Page();
+        $page->setHeading('Testing');
         $manager->persist($page);
 
         $pageSeo = new SeoMetadata();
@@ -26,7 +27,8 @@ class LoadData implements FixtureInterface
 
         $page->setSeoMetadata($pageSeo);
 
-        $article = new Article('Article');
+        $article = new Article();
+        $article->setHeading('Article');
         $manager->persist($article);
 
         $manager->flush();

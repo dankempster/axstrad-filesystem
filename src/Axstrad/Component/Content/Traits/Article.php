@@ -17,22 +17,6 @@ trait Article
      */
     protected $heading;
 
-
-    /**
-     * Trait constructor
-     *
-     * @param string $heading
-     * @param string $copy
-     * @return void
-     * @uses setHeading
-     * @uses setCopy
-     */
-    public function __construct($heading, $copy = null)
-    {
-        $this->setHeading($heading);
-        $this->setCopy($copy);
-    }
-
     /**
      * Set heading
      *
