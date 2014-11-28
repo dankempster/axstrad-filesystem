@@ -46,12 +46,25 @@ class ResolvesOptionsTraitTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @depends testInvokesConfigureOptionsWithOptionsResolver
-     * @expectedException Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testThrowsExceptionForUnexpectedOption()
     {
-        $fixture = new ResolvesOptionsTestClass();
-        $fixture->resolveOptions(array('hello' => 'world'));
+        try {
+            $fixture = new ResolvesOptionsTestClass();
+            $fixture->resolveOptions(array('hello' => 'world'));
+        }
+        catch (\Exception $e) {
+            // TODO: use Symfony version to work out which exception should be expected.
+            if ($e instanceof \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException) {
+                $this->setExpectedException('Symfony\Component\OptionsResolver\Exception\InvalidOptionsException');
+            }
+            elseif ($e instanceof \Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException) {
+                $this->setExpectedException('Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException');
+            }
+            throw $e;
+        }
+
+        $this->fail('An expected exception has not been raised.');
     }
 
     /**
