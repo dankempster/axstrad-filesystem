@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dankempster/axstrad.svg?branch=develop)](https://travis-ci.org/dankempster/axstrad)
+
 A collection of small components and bundles I find useful.
 
 # Axstrad \ Axstrad
