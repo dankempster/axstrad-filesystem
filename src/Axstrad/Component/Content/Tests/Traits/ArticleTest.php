@@ -19,8 +19,8 @@ class ArticleTest extends TestCase
     }
 
     /**
-     * @covers Axstrad\Component\Content\Traits\Article::getHeading
-     * @covers Axstrad\Component\Content\Traits\Article::setHeading
+     * covers Axstrad\Component\Content\Traits\Article::getHeading
+     * covers Axstrad\Component\Content\Traits\Article::setHeading
      */
     public function testCanSetHeading()
     {
@@ -32,7 +32,7 @@ class ArticleTest extends TestCase
     }
 
     /**
-     * @covers Axstrad\Component\Content\Traits\Article::setHeading
+     * covers Axstrad\Component\Content\Traits\Article::setHeading
      */
     public function testSetHeadingReturnsSelf()
     {
@@ -43,8 +43,8 @@ class ArticleTest extends TestCase
     }
 
     /**
-     * @covers Axstrad\Component\Content\Traits\Article::getCopy
-     * @covers Axstrad\Component\Content\Traits\Article::setCopy
+     * covers Axstrad\Component\Content\Traits\Article::getCopy
+     * covers Axstrad\Component\Content\Traits\Article::setCopy
      */
     public function testCanSetCopy()
     {
@@ -56,7 +56,7 @@ class ArticleTest extends TestCase
     }
 
     /**
-     * @covers Axstrad\Component\Content\Traits\Article::setCopy
+     * covers Axstrad\Component\Content\Traits\Article::setCopy
      */
     public function testSetCopyReturnsSelf()
     {
@@ -67,7 +67,7 @@ class ArticleTest extends TestCase
     }
 
     /**
-     * @covers Axstrad\Component\Content\Traits\Article::setCopy
+     * covers Axstrad\Component\Content\Traits\Article::setCopy
      * @uses Axstrad\Component\Content\Traits\Article::getCopy
      */
     public function testCopyIsTypeCastToString()
@@ -80,7 +80,7 @@ class ArticleTest extends TestCase
     }
 
     /**
-     * @covers Axstrad\Component\Content\Traits\Article::setCopy
+     * covers Axstrad\Component\Content\Traits\Article::setCopy
      * @uses Axstrad\Component\Content\Traits\Article::getCopy
      */
     public function testCanSetCopyToNull()

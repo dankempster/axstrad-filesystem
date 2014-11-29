@@ -18,7 +18,7 @@ class LoadClassMetaDataTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Axstrad\DoctrineExtensions\Activatable\ActivatableListener::getSubscribedEvents
+     * covers Axstrad\DoctrineExtensions\Activatable\ActivatableListener::getSubscribedEvents
      */
     public function testSubscribesToLoadClassMetaDataEvent()
     {
@@ -31,7 +31,7 @@ class LoadClassMetaDataTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Axstrad\DoctrineExtensions\Activatable\ActivatableListener::getNamespace
+     * covers Axstrad\DoctrineExtensions\Activatable\ActivatableListener::getNamespace
      */
     public function testGetNamespace()
     {

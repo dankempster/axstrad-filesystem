@@ -17,8 +17,8 @@ namespace Axstrad\Common\Tests\Traits;
 /**
  * Axstrad\Common\Tests\Traits\NullableNameTraitTest
  *
- * @covers Axstrad\Common\Traits\NullableNameTrait::getName
- * @covers Axstrad\Common\Traits\NullableNameTrait::setName
+ * covers Axstrad\Common\Traits\NullableNameTrait::getName
+ * covers Axstrad\Common\Traits\NullableNameTrait::setName
  * @group unittest
  * @uses Axstrad\Common\Traits\NullableNameTrait
  */

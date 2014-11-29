@@ -7,7 +7,7 @@ use Axstrad\Common\Exception\InvalidArgumentException;
  * Axstrad\Common\Tests\Exception\InvalidArgumentExceptionTest
  *
  * @group unittests
- * @covers Axstrad\Common\Exception\InvalidArgumentException::create
+ * covers Axstrad\Common\Exception\InvalidArgumentException::create
  * @uses Axstrad\Common\Util\Debug
  * @uses Axstrad\Common\Util\ArrayUtil
  * @uses Axstrad\Common\Util\StrUtil

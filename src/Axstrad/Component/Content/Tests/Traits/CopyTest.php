@@ -18,8 +18,8 @@ class CopyTest extends TestCase
     }
 
     /**
-     * @covers Axstrad\Component\Content\Traits\Copy::getCopy
-     * @covers Axstrad\Component\Content\Traits\Copy::setCopy
+     * covers Axstrad\Component\Content\Traits\Copy::getCopy
+     * covers Axstrad\Component\Content\Traits\Copy::setCopy
      */
     public function testCanSetCopy()
     {
@@ -31,7 +31,7 @@ class CopyTest extends TestCase
     }
 
     /**
-     * @covers Axstrad\Component\Content\Traits\Copy::setCopy
+     * covers Axstrad\Component\Content\Traits\Copy::setCopy
      */
     public function testSetCopyReturnsSelf()
     {
@@ -42,7 +42,7 @@ class CopyTest extends TestCase
     }
 
     /**
-     * @covers Axstrad\Component\Content\Traits\Copy::setCopy
+     * covers Axstrad\Component\Content\Traits\Copy::setCopy
      * @depends testCanSetCopy
      */
     public function testCopyIsTypeCastToString()

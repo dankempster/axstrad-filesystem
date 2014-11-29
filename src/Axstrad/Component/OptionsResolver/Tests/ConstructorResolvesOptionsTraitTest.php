@@ -17,7 +17,7 @@ namespace Axstrad\Component\OptionsResolver\Tests;
 /**
  * Axstrad\Component\OptionsResolver\ConstructorResolvesOptionsTraitTest
  *
- * @covers Axstrad\Component\OptionsResolver\ConstructorResolvesOptionsTrait
+ * covers Axstrad\Component\OptionsResolver\ConstructorResolvesOptionsTrait
  * @uses Axstrad\Component\OptionsResolver\ConstructorResolvesOptionsTrait
  */
 class ConstructorResolvesOptionsTraitTest extends \PHPUnit_Framework_TestCase
