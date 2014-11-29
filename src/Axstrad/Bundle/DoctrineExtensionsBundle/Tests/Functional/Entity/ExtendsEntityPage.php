@@ -1,7 +1,7 @@
 <?php
 namespace Axstrad\Bundle\DoctrineExtensionsBundle\Tests\Functional\Entity;
 
-use Axstrad\Component\DoctrineORM\Entity\IntegerIdTrait;
+use Axstrad\Component\DoctrineOrm\Entity\IntegerIdTrait;
 use Axstrad\DoctrineExtensions\Activatable\ActivatableEntity;
 use Axstrad\DoctrineExtensions\Mapping\Annotation as Axstrad;
 use Doctrine\ORM\Mapping as ORM;
