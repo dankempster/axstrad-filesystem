@@ -13,7 +13,8 @@ before_script:
   - composer install --prefer-source --dev
   - composer require symfony/symfony:${SYMFONY_VERSION}
 script:
-  - phpunit -c phpunit.dist.xml
+  # - phpunit -c phpunit.dist.xml
+  - php ./vendor/phpunit/phpunit/phpunit -c phpunit.dist.xml
 
 notifications:
   email:
