@@ -31,11 +31,23 @@ doctrine:
         result_cache_driver: array
         auto_mapping: true
         mappings:
+            axstrad_orm:
+                type: yml
+                prefix: Axstrad\Component\DoctrineOrm\Entity
+                dir: "%kernel.root_dir%/../../../../../Component/DoctrineOrm/config"
+                alias: AxstradOrm
+                is_bundle: false
             axstrad_content:
                 type: yml
                 prefix: Axstrad\Component\Content\Orm
                 dir: "%kernel.root_dir%/../../../../../Component/Content/config/Orm"
                 alias: AxstradContent # this one is optional and will default to the name set for the mapping
+                is_bundle: false
+            axstrad_page:
+                type: yml
+                prefix: Axstrad\Component\Page\Entity
+                dir: "%kernel.root_dir%/../../../../../Component/Page/config"
+                alias: AxstradPage
                 is_bundle: false
             CmfSeoBundle:
                 type: xml

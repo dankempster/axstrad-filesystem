@@ -1,0 +1,7 @@
+Axstrad\Component\DoctrineOrm\Entity\BaseEntity:
+    type: mappedSuperclass
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO

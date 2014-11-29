@@ -37,20 +37,26 @@ doctrine:
     orm:
         # ...other orm config...
         mappings:
-            axstrad_content: # Required by AxstradPageBundle
+            axstrad_page: # Required by AxstradPageBundle
+                type: yml
+                prefix: Axstrad\Component\Page\Entity
+                dir: "%kernel.root_dir%/../vendor/axstrad/axstrad/src/Axstrad/Component/Page/config/Orm"
+                alias: AxstradContent
+                is_bundle: false
+            axstrad_content: # Required by axstrad_page
                 type: yml
                 prefix: Axstrad\Component\Content\Orm
                 dir: "%kernel.root_dir%/../vendor/axstrad/axstrad/src/Axstrad/Component/Content/config/Orm"
                 alias: AxstradContent
                 is_bundle: false
-        filters:
-            activatable: # Required by AxstradPageBundle
-                class: Axstrad\DoctrineExtensions\Activatable\Filter\OrmFilter
-                enabled: true
             CmfSeoBundle: # Required by AxstradSeoBundle
                 type: xml
                 prefix: Symfony\Cmf\Bundle\SeoBundle\Model
                 dir: Resources/config/doctrine-model
+        filters:
+            activatable: # Required by AxstradPageBundle
+                class: Axstrad\DoctrineExtensions\Activatable\Filter\OrmFilter
+                enabled: true
 
 
 ## AxstradDoctrineExtensionsBundle

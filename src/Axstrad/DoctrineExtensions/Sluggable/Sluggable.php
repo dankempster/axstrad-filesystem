@@ -1,11 +1,11 @@
 <?php
-namespace Axstrad\DoctrineExtensions\Sluggable\Sluggable;
+namespace Axstrad\DoctrineExtensions\Sluggable;
 
 use Gedmo\Sluggable\Sluggable as BaseInterface;
 
 
 /**
- * Axstrad\DoctrineExtensions\Sluggable\Sluggable\Sluggable
+ * Axstrad\DoctrineExtensions\Sluggable\Sluggable
  */
 interface Sluggable extends BaseInterface
 {

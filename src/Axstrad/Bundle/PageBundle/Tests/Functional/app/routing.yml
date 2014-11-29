@@ -1,2 +1,9 @@
 axstrad_page:
     resource: '@AxstradPageBundle/Resources/config/routing.yml'
+
+axstrad_test_page:
+    pattern: /events/{slug}
+    defaults:
+        _controller: AxstradTestPageBundle:Event:index
+
+
