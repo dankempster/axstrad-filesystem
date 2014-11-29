@@ -23,14 +23,6 @@ class CanInheritPageFunctionality extends WebTestCase
         );
     }
 
-    /**
-     * Should schema be loaded quietly
-     */
-    protected function runCommandsQuietly()
-    {
-        return false;
-    }
-
     public function setUp()
     {
         parent::setUp();
