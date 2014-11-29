@@ -4,12 +4,20 @@ tools:
     php_analyzer: true
 filter:
     excluded_paths:
-        - src/Axstrad/*/Tests
-        - src/Axstrad/Bundle/*/Tests
-        - src/Axstrad/Component/*/Tests
-        - src/Axstrad/Component/Test/Example
+        - src/Axstrad/Common/Tests/*
+        - src/Axstrad/Component/Filesystem/Tests/*
+        - src/Axstrad/Component/OptionsResolver/Tests/*
+        - src/Axstrad/Component/Content/Tests/*
         - src/Axstrad/DoctrineExtensions/Tests/*
-        - vendor
+        - src/Axstrad/Bundle/DoctrineExtensionsBundle/Tests/*
+        - src/Axstrad/Bundle/SeoBundle/Tests/*
+        - src/Axstrad/Bundle/PageBundle/Tests/*
+        - src/Axstrad/Bundle/WebFrameworkBundle/Tests/*
+        - src/Axstrad/Component/Test/Example/*
+        - src/Axstrad/DoctrineExtensions/Tests/*
+        - vendor/*
+        - src/Axstrad/Component/Test/MockedIteratorTest.php
+        - src/Axstrad/Bundle/TestBundle/Functional/WebTestCase.php
 tools:
     external_code_coverage:
         timeout: 1800
