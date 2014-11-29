@@ -10,3 +10,9 @@ filter:
         - src/Axstrad/Component/Test/Example
         - src/Axstrad/DoctrineExtensions/Tests/*
         - vendor
+tools:
+    external_code_coverage: true
+    external_code_coverage:
+        timeout: 600
+    external_code_coverage:
+        runs: 15
