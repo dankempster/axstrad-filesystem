@@ -10,6 +10,31 @@ namespace Axstrad\DoctrineExtensions\Sluggable;
  */
 trait SluggableTrait
 {
-    use Traits\SluggableMethods,
-        Traits\SluggableProperties;
+    /**
+     * @var string The entity's slug
+     */
+    protected $slug;
+
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Get slug
+     *
+     * @param string $slug
+     * @return self
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = (string) $slug;
+        return $this;
+    }
 }
