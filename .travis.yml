@@ -10,7 +10,7 @@ env:
   # - SYMFONY_VERSION="2.7.*@dev"
   # - SYMFONY_VERSION="3.0.*@dev"
 before_script:
-  - composer install --prefer-source --dev
+  # - composer install --prefer-source --dev
   - composer require symfony/symfony:${SYMFONY_VERSION}
 script:
   # - phpunit -c phpunit.dist.xml
