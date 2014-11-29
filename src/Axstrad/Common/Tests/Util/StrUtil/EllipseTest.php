@@ -7,7 +7,7 @@ use Axstrad\Common\Util\StrUtil;
 /**
  * Axstrad\Common\Tests\Util\StrUtil\EllipseTest
  *
- * @covers Axstrad\Common\Util\StrUtil::ellipse
+ * covers Axstrad\Common\Util\StrUtil::ellipse
  * @group unittests
  */
 class EllipseTest extends \PHPUnit_Framework_TestCase

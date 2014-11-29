@@ -18,7 +18,7 @@ use Axstrad\Common\Util\ArrayUtil;
 /**
  * Axstrad\Common\Tests\Util\ArrayUtil\IsAssociativeTest
  *
- * @covers Axstrad\Common\Util\ArrayUtil::isAssociative
+ * covers Axstrad\Common\Util\ArrayUtil::isAssociative
  * @group unittest
  */
 class IsAssociativeTest extends \PHPUnit_Framework_TestCase

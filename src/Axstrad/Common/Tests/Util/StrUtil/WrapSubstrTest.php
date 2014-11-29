@@ -7,7 +7,7 @@ use Axstrad\Common\Util\StrUtil;
 /**
  * Axstrad\Common\Tests\Util\StrUtil\WrapSubstrTest
  *
- * @covers Axstrad\Common\Util\StrUtil::wrapSubstr
+ * covers Axstrad\Common\Util\StrUtil::wrapSubstr
  * @group unittests
  */
 class WrapSubstrTest extends \PHPUnit_Framework_TestCase

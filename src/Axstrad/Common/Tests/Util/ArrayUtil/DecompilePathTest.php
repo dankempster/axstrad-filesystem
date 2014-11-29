@@ -18,7 +18,7 @@ use Axstrad\Common\Util\ArrayUtil;
 /**
  * Axstrad\Common\Tests\Util\ArrayUtil\DecompilePathTest
  *
- * @covers Axstrad\Common\Util\ArrayUtil::decompilePath
+ * covers Axstrad\Common\Util\ArrayUtil::decompilePath
  * @group unittest
  * @uses Axstrad\Common\Util\ArrayUtil
  */

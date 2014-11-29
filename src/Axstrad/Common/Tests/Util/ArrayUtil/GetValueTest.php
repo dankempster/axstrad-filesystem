@@ -18,7 +18,7 @@ use Axstrad\Common\Util\ArrayUtil;
 /**
  * Axstrad\Common\Tests\Util\ArrayUtil\GetValueTest
  *
- * @covers Axstrad\Common\Util\ArrayUtil::get
+ * covers Axstrad\Common\Util\ArrayUtil::get
  * @group unittest
  * @uses Axstrad\Common\Util\ArrayUtil
  */

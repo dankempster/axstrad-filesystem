@@ -1,0 +1,35 @@
+tools:
+    php_sim: true
+    php_pdepend: true
+    php_analyzer: true
+filter:
+    excluded_paths:
+        - src/Axstrad/Common/Tests/*
+        - src/Axstrad/Component/Filesystem/Tests/*
+        - src/Axstrad/Component/OptionsResolver/Tests/*
+        - src/Axstrad/Component/Content/Tests/*
+        - src/Axstrad/DoctrineExtensions/Tests/*
+        - src/Axstrad/Bundle/DoctrineExtensionsBundle/Tests/*
+        - src/Axstrad/Bundle/SeoBundle/Tests/*
+        - src/Axstrad/Bundle/PageBundle/Tests/*
+        - src/Axstrad/Bundle/WebFrameworkBundle/Tests/*
+        - src/Axstrad/Component/Test/Example/*
+        - src/Axstrad/DoctrineExtensions/Tests/*
+        - vendor/*
+        - src/Axstrad/Component/Test/MockedIteratorTest.php
+        - src/Axstrad/Bundle/TestBundle/Functional/WebTestCase.php
+tools:
+    external_code_coverage:
+        timeout: 1800
+        runs: 5
+    php_mess_detector: true
+    php_code_sniffer: true
+    sensiolabs_security_checker: true
+    php_code_coverage: true
+    php_pdepend: true
+    php_loc:
+        enabled: true
+        excluded_dirs: [vendor, tests]
+    php_cpd:
+        enabled: true
+        excluded_dirs: [vendor, tests]

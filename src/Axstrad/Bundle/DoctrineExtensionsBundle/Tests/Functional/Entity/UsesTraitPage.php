@@ -1,7 +1,7 @@
 <?php
 namespace Axstrad\Bundle\DoctrineExtensionsBundle\Tests\Functional\Entity;
 
-use Axstrad\Component\DoctrineORM\Entity\BaseEntity;
+use Axstrad\Component\DoctrineOrm\Entity\BaseEntity;
 use Axstrad\DoctrineExtensions\Activatable\ActivatableTrait;
 use Axstrad\DoctrineExtensions\Mapping\Annotation as Axstrad;
 use Doctrine\ORM\Mapping as ORM;
