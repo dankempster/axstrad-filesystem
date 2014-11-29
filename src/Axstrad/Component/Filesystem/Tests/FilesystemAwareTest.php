@@ -53,7 +53,7 @@ class FilesystemAwareTest extends \PHPUnit_Framework_TestCase
 
     /**
      * covers Axstrad\Common\Traits\FilesystemAwareTrait::setFilesystem
-     * @uses Axstrad\Common\Traits\FilesystemAwareTrait::getFilesystem
+     * uses Axstrad\Common\Traits\FilesystemAwareTrait::getFilesystem
      */
     public function testCanSetFilesystemObject()
     {
