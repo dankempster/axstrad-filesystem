@@ -11,8 +11,17 @@ filter:
         - src/Axstrad/DoctrineExtensions/Tests/*
         - vendor
 tools:
-    external_code_coverage: true
     external_code_coverage:
-        timeout: 600
-    external_code_coverage:
+        timeout: 1800
         runs: 15
+    php_mess_detector: true
+    php_code_sniffer: true
+    sensiolabs_security_checker: true
+    php_code_coverage: true
+    php_pdepend: true
+    php_loc:
+        enabled: true
+        excluded_dirs: [vendor, tests]
+    php_cpd:
+        enabled: true
+        excluded_dirs: [vendor, tests]
