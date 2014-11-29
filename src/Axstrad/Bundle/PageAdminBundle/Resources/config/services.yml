@@ -9,3 +9,4 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AxstradPageAdminBundle]]
+            - [ setObjectManager, [@doctrine.orm.entity_manager]]
