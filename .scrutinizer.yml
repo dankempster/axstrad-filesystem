@@ -12,6 +12,7 @@ filter:
         - src/Axstrad/Bundle/DoctrineExtensionsBundle/Tests/*
         - src/Axstrad/Bundle/SeoBundle/Tests/*
         - src/Axstrad/Bundle/PageBundle/Tests/*
+        - src/Axstrad/Bundle/PageAdminBundle/Tests/*
         - src/Axstrad/Bundle/WebFrameworkBundle/Tests/*
         - src/Axstrad/Component/Test/Example/*
         - src/Axstrad/DoctrineExtensions/Tests/*
