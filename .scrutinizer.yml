@@ -1,0 +1,8 @@
+filter:
+    excluded_paths:
+        - src/Axstrad/*/Tests
+        - src/Axstrad/Bundle/*/Tests
+        - src/Axstrad/Component/*/Tests
+        - src/Axstrad/Component/Test/Example
+        - src/Axstrad/DoctrineExtensions/Tests/*
+        - vendor
