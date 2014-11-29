@@ -30,7 +30,7 @@ class FilesystemAwareTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Axstrad\Common\Traits\FilesystemAwareTrait::getFilesystem
+     * covers Axstrad\Common\Traits\FilesystemAwareTrait::getFilesystem
      */
     public function testGetFilesystemReturnsSymfonyFilesystemObject()
     {
@@ -41,7 +41,7 @@ class FilesystemAwareTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Axstrad\Common\Traits\FilesystemAwareTrait::getFilesystem
+     * covers Axstrad\Common\Traits\FilesystemAwareTrait::getFilesystem
      */
     public function testGetFilsystemReturnsSameObjectForEachInvokation()
     {
@@ -52,7 +52,7 @@ class FilesystemAwareTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Axstrad\Common\Traits\FilesystemAwareTrait::setFilesystem
+     * covers Axstrad\Common\Traits\FilesystemAwareTrait::setFilesystem
      * @uses Axstrad\Common\Traits\FilesystemAwareTrait::getFilesystem
      */
     public function testCanSetFilesystemObject()
