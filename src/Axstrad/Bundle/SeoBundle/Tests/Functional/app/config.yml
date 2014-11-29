@@ -41,13 +41,13 @@ doctrine:
                 type: yml
                 prefix: Axstrad\Component\Content\Orm
                 dir: "%kernel.root_dir%/../../../../../Component/Content/config/Orm"
-                alias: AxstradContent # this one is optional and will default to the name set for the mapping
+                alias: AxstradContent
                 is_bundle: false
             CmfSeoBundle:
                 type: xml
                 prefix: Symfony\Cmf\Bundle\SeoBundle\Model
                 dir: Resources/config/doctrine-model
-                alias: CmfSeo # this one is optional and will default to the name set for the mapping
+                alias: CmfSeo
         # mappings:
         #     AxstradHttpFileUploadBundle:
         #         type: yml
