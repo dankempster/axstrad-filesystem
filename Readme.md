@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/dankempster/axstrad.svg?branch=develop)](https://travis-ci.org/dankempster/axstrad)
+[![Coverage Status](https://img.shields.io/coveralls/dankempster/axstrad.svg)](https://coveralls.io/r/dankempster/axstrad)
 
 A collection of small components and bundles I find useful.
 
