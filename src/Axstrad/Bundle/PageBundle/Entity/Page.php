@@ -16,6 +16,23 @@ class Page extends Article implements
     SeoAwareInterface
 {
     use ActivatableTrait;
-    use SeoAwareTrait;
     use SluggableTrait;
+
+    private $seoMetadata;
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSeoMetadata()
+    {
+        return $this->seoMetadata;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setSeoMetadata($metadata)
+    {
+        $this->seoMetadata = $metadata;
+    }
 }
