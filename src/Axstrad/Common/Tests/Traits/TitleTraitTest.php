@@ -17,8 +17,8 @@ namespace Axstrad\Common\Tests\Traits;
 /**
  * Axstrad\Common\Tests\Traits\TitleTraitTest
  *
- * @covers Axstrad\Common\Traits\TitleTrait::getName
- * @covers Axstrad\Common\Traits\TitleTrait::setName
+ * @covers Axstrad\Common\Traits\TitleTrait::getTitle
+ * @covers Axstrad\Common\Traits\TitleTrait::setTitle
  * @group unittest
  * @uses Axstrad\Common\Traits\TitleTrait
  */
