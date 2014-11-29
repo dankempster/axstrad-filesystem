@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/dankempster/axstrad.svg?branch=develop)](https://travis-ci.org/dankempster/axstrad)
-[![Coverage Status](https://img.shields.io/coveralls/dankempster/axstrad.svg)](https://coveralls.io/r/dankempster/axstrad)
+[![Code Coverage](https://scrutinizer-ci.com/g/dankempster/axstrad/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/dankempster/axstrad/?branch=develop)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dankempster/axstrad/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/dankempster/axstrad/?branch=develop)
 [![Dependency Status](https://www.versioneye.com/user/projects/54792bb360944d80cc000105/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54792bb360944d80cc000105)
 
