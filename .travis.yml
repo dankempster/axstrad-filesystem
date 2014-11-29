@@ -7,16 +7,18 @@ env:
   - SYMFONY_VERSION="2.4.*"
   - SYMFONY_VERSION="2.5.*"
   - SYMFONY_VERSION="2.6.*"
-  # - SYMFONY_VERSION="2.6.*@dev"
-  # - SYMFONY_VERSION="2.7.*@dev"
-  # - SYMFONY_VERSION="3.0.*@dev"
+  - SYMFONY_VERSION="2.7.*@dev"
+  - SYMFONY_VERSION="3.0.*@dev"
 before_script:
   # - composer install --prefer-source --dev
   - composer require symfony/symfony:${SYMFONY_VERSION}
 script:
   # - phpunit -c phpunit.dist.xml
   - php ./vendor/phpunit/phpunit/phpunit -c phpunit.dist.xml
-
+matrix:
+  allow_failures:
+    - env: SYMFONY_VERSION="2.7.*@dev"
+    - env: SYMFONY_VERSION="3.0.*@dev"
 notifications:
   email:
     - dev@dankempster.co.uk
