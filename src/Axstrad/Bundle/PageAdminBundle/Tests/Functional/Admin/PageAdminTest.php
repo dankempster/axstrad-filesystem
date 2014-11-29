@@ -47,16 +47,14 @@ class PageAdminTest extends WebTestCase
         $res = $this->client->getResponse();
         $this->assertEquals(200, $res->getStatusCode());
 
-        $button = $crawler->selectButton('Create');
+        $button = $crawler->filter('[name="btn_create_and_list"]');
         $form = $button->form();
         $node = $form->getFormNode();
         $actionUrl = $node->getAttribute('action');
         $uniqId = substr(strchr($actionUrl, '='), 1);
 
-        $form[$uniqId.'[parent]'] = '/cms/pages';
-        $form[$uniqId.'[name]'] = 'foo-test';
-        $form[$uniqId.'[title]'] = 'Foo Test';
-        $form[$uniqId.'[body]'] = 'Foo Test';
+        $form[$uniqId.'[heading]'] = 'Create Test';
+        $form[$uniqId.'[copy]'] = '<p>Create copy</p>';
 
         $this->client->submit($form);
         $res = $this->client->getResponse();
