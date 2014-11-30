@@ -1,0 +1,32 @@
+{
+    "name": "axstrad/extra-framework-bundle",
+    "description": "Extra framework bundle for Symfony 2 applications",
+    "type": "library",
+    "keywords": ["symfony bundle"],
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Dan Kempster",
+            "email": "dev@dankempster.co.uk",
+            "role": "Developer"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.3.3",
+        "doctrine/common": "~2.3",
+        "phpoption/phpoption": "~1",
+        "sensio/framework-extra-bundle": "~2.3",
+        "symfony/dependency-injection": "~2.3",
+        "symfony/http-foundation": "~2.3",
+        "symfony/http-kernel": "~2.3"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Axstrad\\Bundle\\ExtraFrameworkBundle": "./"
+        }
+    },
+
+    "target-dir": "Axstrad/Bundle/ExtraFrameworkBundle"
+}

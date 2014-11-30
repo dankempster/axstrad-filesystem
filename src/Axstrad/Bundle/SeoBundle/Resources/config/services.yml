@@ -1,0 +1,11 @@
+parameters:
+    axstrad.seo.seo_page_data.listener.class: Axstrad\Bundle\SeoBundle\EventListener\SeoPageDataListener
+
+services:
+    axstrad.seo.seo_page_data.listener:
+        class: %axstrad.seo.seo_page_data.listener.class%
+        arguments:
+            - @cmf_seo.presentation
+        tags:
+            -
+                name: kernel.event_subscriber

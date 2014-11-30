@@ -1,0 +1,4 @@
+axstrad_test_seo:
+    resource: "@AxstradTestSeoBundle/Controller/"
+    type:     annotation
+    prefix:   /

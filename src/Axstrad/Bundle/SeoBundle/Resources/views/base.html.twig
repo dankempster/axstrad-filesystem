@@ -1,0 +1,12 @@
+<html {{ sonata_seo_html_attributes() }}>
+    <head {{ sonata_seo_head_attributes() }}>
+        {% block title %}{{ sonata_seo_title() }}{% endblock %}
+
+        {% block metaTags %}{{ sonata_seo_metadatas() }}{% endblock %}
+
+        {{ sonata_seo_link_canonical() }}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>

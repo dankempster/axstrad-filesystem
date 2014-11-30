@@ -4,24 +4,78 @@
          backupGlobals="false"
          backupStaticAttributes="false"
          colors="true"
-         strict="true"
+         strict="false"
          verbose="false">
 
     <testsuites>
+        <testsuite name="Axstrad\Common\Util\ArrayUtil">
+            <file>./src/Axstrad/Common/Tests/Util/ArrayUtil/DecompilePathTest.php</file>
+            <file>./src/Axstrad/Common/Tests/Util/ArrayUtil/MergeRecursiveDistinctTest.php</file>
+            <file>./src/Axstrad/Common/Tests/Util/ArrayUtil/AttachTest.php</file>
+            <file>./src/Axstrad/Common/Tests/Util/ArrayUtil/GetValueTest.php</file>
+            <file>./src/Axstrad/Common/Tests/Util/ArrayUtil/FlattenTest.php</file>
+            <file>./src/Axstrad/Common/Tests/Util/ArrayUtil/RaiseTest.php</file>
+            <file>./src/Axstrad/Common/Tests/Util/ArrayUtil/ReindexTest.php</file>
+            <file>./src/Axstrad/Common/Tests/Util/ArrayUtil/IsAssociativeTest.php</file>
+        </testsuite>
+
         <testsuite name="Axstrad\Test">
             <file>./src/Axstrad/Component/Test/MockedIteratorTest.php</file>
         </testsuite>
 
-        <testsuite name="Axstrad Library">
-            <directory suffix="Test.php">./src/Axstrad/*/Tests/</directory>
+        <testsuite name="Axstrad\Common">
+            <directory suffix="Test.php">./src/Axstrad/Common/Tests/Exception</directory>
+            <directory suffix="Test.php">./src/Axstrad/Common/Tests/Util</directory>
+
+            <!-- Traits tests need to run in specific order -->
+            <file>./src/Axstrad/Common/Tests/Traits/NameTraitTest.php</file>
+            <file>./src/Axstrad/Common/Tests/Traits/NullableNameTraitTest.php</file>
+            <file>./src/Axstrad/Common/Tests/Traits/TitleTraitTest.php</file>
+            <file>./src/Axstrad/Common/Tests/Traits/NullableTitleTraitTest.php</file>
+        </testsuite>
+
+        <testsuite name="Axstrad\Filesystem">
+            <directory suffix="Test.php">./src/Axstrad/Component/Filesystem/Tests/</directory>
+        </testsuite>
+
+        <testsuite name="Axstrad\OptionsResolver">
+            <directory suffix="Test.php">./src/Axstrad/Component/OptionsResolver/Tests/</directory>
+        </testsuite>
+
+        <testsuite name="Axstrad\Content">
+            <directory suffix="Test.php">./src/Axstrad/Component/Content/Tests</directory>
+        </testsuite>
+
+        <testsuite name="Axstrad\DoctrineExtensions">
+            <directory suffix="Test.php">./src/Axstrad/DoctrineExtensions/Tests/</directory>
         </testsuite>
 
         <testsuite name="Axstrad\TestBundle">
             <file>./src/Axstrad/Bundle/TestBundle/Functional/WebTestCase.php</file>
         </testsuite>
 
+        <testsuite name="Axstrad\DoctrineExtensionsBundle">
+            <directory suffix="Test.php">./src/Axstrad/Bundle/DoctrineExtensionsBundle/Tests/</directory>
+        </testsuite>
+
+        <testsuite name="Axstrad\SeoBundle">
+            <directory suffix="Test.php">./src/Axstrad/Bundle/SeoBundle/Tests/</directory>
+        </testsuite>
+
         <testsuite name="Axstrad\HttpFileUploadBundle">
             <directory suffix="Test.php">./src/Axstrad/Bundle/HttpFileUploadBundle/Tests/</directory>
+        </testsuite>
+
+        <testsuite name="Axstrad\PageBundle">
+            <directory suffix="Test.php">./src/Axstrad/Bundle/PageBundle/Tests/</directory>
+        </testsuite>
+
+        <testsuite name="Axstrad\PageAdminBundle">
+            <directory suffix="Test.php">./src/Axstrad/Bundle/PageAdminBundle/Tests/</directory>
+        </testsuite>
+
+        <testsuite name="Axstrad\WebFrameworkBundle">
+            <directory suffix="Test.php">./src/Axstrad/Bundle/WebFrameworkBundle/Tests/</directory>
         </testsuite>
     </testsuites>
 
@@ -43,9 +97,11 @@
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
             <exclude>
-                <directory>./vendor</directory>
                 <directory>./src/Axstrad/*/Tests</directory>
+                <directory>./src/Axstrad/Bundle/*/Tests</directory>
+                <directory>./src/Axstrad/Component/*/Tests</directory>
                 <directory>./src/Axstrad/Component/Test/Example</directory>
+                <directory>./vendor</directory>
             </exclude>
         </whitelist>
     </filter>

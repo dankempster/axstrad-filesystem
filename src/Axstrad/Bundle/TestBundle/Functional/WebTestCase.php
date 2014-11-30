@@ -13,12 +13,12 @@
  */
 namespace Axstrad\Bundle\TestBundle\Functional;
 
+use Axstrad\Component\Test\Console\Output\BufferedOutput;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase as BaseWebTestCase;
 use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -80,20 +80,28 @@ abstract class WebTestCase extends BaseWebTestCase
     {
         if (!static::$application) return;
 
+        $output = new BufferedOutput();
+
         static::$application->run(new ArrayInput(array(
             'command'          => 'doctrine:database:drop',
             '--no-interaction' => true,
             '--force'          => true,
             '--quiet'          => true,
-        )));
+        )), $output);
+
+        if (!$this->runCommandsQuietly()) {
+            echo $output->fetch();
+        }
+
+        parent::tearDown();
     }
 
     /**
      * Load fixtures of these bundles
      *
-     * @return array Bundles name where fixtures should be found
+     * @return boolean|array Bundles name where fixtures should be found
      */
-    protected function loadFixturesBundles()
+    protected function loadBundlesFixtures()
     {
         return false;
     }
@@ -111,7 +119,7 @@ abstract class WebTestCase extends BaseWebTestCase
     /**
      * Should schema be loaded quietly
      */
-    protected function loadSchemaQuietly()
+    protected function runCommandsQuietly()
     {
         return true;
     }
@@ -150,7 +158,7 @@ abstract class WebTestCase extends BaseWebTestCase
             '--no-interaction' => true,
         )), $output);
 
-        if (!$this->loadSchemaQuietly()) {
+        if (!$this->runCommandsQuietly()) {
             echo $output->fetch();
         }
 
@@ -173,21 +181,26 @@ abstract class WebTestCase extends BaseWebTestCase
      */
     protected function loadFixtures()
     {
-        if (!is_array($this->loadFixturesBundles())) {
+        if (!is_array($this->loadBundlesFixtures())) {
             return $this;
         }
 
         $bundles = static::$kernel->getBundles();
         $formattedBundles = array_map(function ($bundle) use ($bundles) {
             return $bundles[$bundle]->getPath() . '/DataFixtures/ORM/';
-        }, $this->loadFixturesBundles());
+        }, $this->loadBundlesFixtures());
+
+        $output = new BufferedOutput();
 
         self::$application->run(new ArrayInput(array(
             'command'          => 'doctrine:fixtures:load',
             '--no-interaction' => true,
             '--fixtures'       => $formattedBundles,
-            '--quiet'          => true,
-        )));
+        )), $output);
+
+        if (!$this->runCommandsQuietly()) {
+            echo $output->fetch();
+        }
 
         return $this;
     }

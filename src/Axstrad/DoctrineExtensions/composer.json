@@ -1,0 +1,35 @@
+{
+    "name": "axstrad/doctrine-extensions",
+    "description": "Extensions for Doctrine ORM",
+    "type": "library",
+    "keywords": ["doctrine", "doctrine/orm", "extensions"],
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Dan Kempster",
+            "email": "dev@dankempster.co.uk",
+            "role": "Developer"
+        }
+    ],
+
+    "require": {
+        "php": "~5.4",
+        "doctrine/common": ">=2.2.3,<2.4-dev",
+        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "gedmo/doctrine-extensions": "~2.3"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Axstrad\\DoctrineExtensions": "src/"
+        }
+    },
+
+    "archive": {
+        "exclude": [
+            "!vendor",
+            "phpunit.xml*",
+            "./Tests"
+        ]
+    }
+}

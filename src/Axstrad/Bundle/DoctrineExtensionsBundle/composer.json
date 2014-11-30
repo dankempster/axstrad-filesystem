@@ -1,0 +1,30 @@
+{
+    "name": "axstrad/doctrine-extensions-bundle",
+    "description": "Symfony 2 Bundle for Axstrad\\DoctrineExtensions",
+    "type": "library",
+    "keywords": ["doctrine", "extensions", "symfony bundle"],
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Dan Kempster",
+            "email": "dev@dankempster.co.uk",
+            "role": "Developer"
+        }
+    ],
+
+    "require": {
+        "php": "~5.4",
+        "doctrine/dbal": ">=2.2.3,<2.4-dev",
+        "symfony/config": "~2.3",
+        "symfony/dependency-injection": "~2.3",
+        "symfony/http-kernel": "~2.3"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Axstrad\\DoctrineExtensionsBundle": ""
+        }
+    },
+
+    "target-dir": "Axstrad/Bundle/DoctrineExtensionsBundle"
+}

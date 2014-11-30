@@ -1,0 +1,4 @@
+axstrad_page:
+    pattern: /{slug}
+    defaults:
+        _controller: AxstradPageBundle:Default:index
