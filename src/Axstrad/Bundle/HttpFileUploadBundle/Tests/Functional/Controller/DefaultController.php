@@ -39,9 +39,6 @@ class DefaultController extends Controller
 
             return $this->redirect("/upload-file");
         }
-        else {
-            echo $form->getErrorsAsString();
-        }
 
         return array('form' => $form->createView());
     }
@@ -71,9 +68,6 @@ class DefaultController extends Controller
             $em->flush();
 
             return $this->redirect("/create-event");
-        }
-        else {
-            echo $form->getErrorsAsString();
         }
 
         return array('form' => $form->createView());
