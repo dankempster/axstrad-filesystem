@@ -2,66 +2,162 @@
 namespace Axstrad\Bundle\HttpFileUploadAdminBundle\Tests\Functional;
 
 use Axstrad\Bundle\TestBundle\Functional\WebTestCase;
+use Axstrad\Bundle\HttpFileUploadBundle\Model\File;
+use Axstrad\Bundle\HttpFileUploadBundle\Model\FileAware;
+use Symfony\Component\PropertyAccess\PropertyAccessor;
 
 
-class AdminFileTest extends WebTestCase
+class AdminFileUploadTest extends WebTestCase
 {
-    /**
-     */
-    public function tearDown()
+    public function uploadFileData()
     {
-        $em = self::$kernel->getContainer()->get('doctrine.orm.entity_manager');
+        return array(
+            // Test uploading just a file
+            array(
+                '/admin/axstrad/testhttpfileupload/file/create',
+                'Axstrad\Bundle\HttpFileUploadAdminBundle\Tests\Functional\Entity\File',
+            ),
 
-        $files = $em
-            ->getRepository('Axstrad\Bundle\HttpFileUploadAdminBundle\Tests\Functional\Entity\File')
-            ->findAll();
-        foreach ($files as $file) {
-            $file->removeUpload();
-        }
+            // Test submitting properties with a file upload
+            array(
+                '/admin/axstrad/testhttpfileupload/image/create',
+                'Axstrad\Bundle\HttpFileUploadAdminBundle\Tests\Functional\Entity\Image',
+                array(
+                    '[title]' => 'An Image',
+                    '[altText]' => 'An Image alttext',
+                ),
+                array(
+                    'title' => 'An Image',
+                    'altText' => 'An Image alttext',
+                )
+            ),
+
+            // Test file upload with associated entity
+            array(
+                '/admin/axstrad/testhttpfileupload/page/create',
+                'Axstrad\Bundle\HttpFileUploadAdminBundle\Tests\Functional\Entity\Page',
+                array(
+                    '[heading]' => 'A Page',
+                    '[copy]' => 'Bar',
+                    '[image][title]' => 'Page image',
+                    '[image][altText]' => 'Page image alt text',
+                ),
+                array(
+                    'heading' => 'A Page',
+                    'copy' => 'Bar',
+                    'image.title' => 'Page image',
+                    'image.altText' => 'Page image alt text',
+                ),
+                '[image][file]'
+            ),
+        );
     }
 
-    public function testAdminCanUploadFile()
-    {
+    /**
+     * @dataProvider uploadFileData
+     * @param string $url URL of the upload file form
+     * @param string $entityClass Classname of entity that will be persisted on
+     *        successful form submission.
+     * @param array $formValues Additional form input values to set
+     * @param array $entityAssertions Assertions to make after form submission
+     * @param string $fileInputFilter Filter to use to select the form's file
+     *        field
+     */
+    public function testAdminCanUploadFile(
+        $url,
+        $entityClass,
+        array $formValues = array(),
+        array $entityAssertions = array(),
+        $fileInputFilter = '[file]'
+    ) {
         $client = static::createClient();
 
         // Crawl create page
-        $crawler = $client->request('GET', '/admin/axstrad/httpfileupload/file/create');
-        $res = $client->getResponse();
-        $this->assertEquals(200, $res->getStatusCode());
+        $crawler = $client->request('GET', $url);
+        $response = $client->getResponse();
+        if (!$response->isSuccessful()) {
+            $this->assertEquals(
+                200,
+                $response->getStatusCode(),
+                'Failed to return successful response for URL '.$url
+            );
+        }
 
-        // populate and submit form
+        // Find the form on the page
         $button = $crawler->selectButton('btn_create_and_return_to_list');
         $form = $button->form();
+
+        // Get form ID
         $node = $form->getFormNode();
         $actionUrl = $node->getAttribute('action');
         $uniqId = substr(strchr($actionUrl, '='), 1);
 
-        $form[$uniqId.'[file]']->upload(__DIR__.'/Resources/assets/hello-world.txt');
+        // Populate form
+        $form[$uniqId.$fileInputFilter]->upload(__DIR__.'/Resources/assets/hello-world.txt');
+        if (!isset($form[$uniqId.$fileInputFilter])) {
+            $this->assertTrue(false,
+                'Form input '.$uniqId.$fileInputFilter.' doesn\'t exist'
+            );
+        }
+        foreach($formValues as $input => $value) {
+            if (!isset($form[$uniqId.$input])) {
+                $this->assertTrue(false,
+                    'Form input '.$uniqId.$input.' doesn\'t exist'
+                );
+            }
+            $form[$uniqId.$input] = $value;
+        }
 
+        // Submit form
         $client->submit($form);
 
         // If we have a 302 redirect, then all is well
-        $res = $client->getResponse();
-        $this->assertEquals(302, $res->getStatusCode());
-
+        $response = $client->getResponse();
+        $this->assertEquals(302, $response->getStatusCode());
 
         // assert entity was created
         $em = self::$kernel->getContainer()->get('doctrine.orm.entity_manager');
-
-        $file = $em
-            ->getRepository('Axstrad\Bundle\HttpFileUploadBundle\Entity\File')
-            ->find(1);
-
+        $entity = $em->find($entityClass, 1);
         $this->assertNotNull(
-            $file,
+            $entity,
             "Failed to load new File entity, was it persistsed/flushed?"
         );
 
-        // assert entity's file was saved to filesystem
+        // Assert entity values
+        $accessor = new PropertyAccessor;
+        foreach ($entityAssertions as $property => $value) {
+            $this->assertEquals(
+                $value,
+                $accessor->getValue($entity, $property),
+                '$'.$property.' doesn\'t match expected value'
+            );
+        }
+
+        // Assert file was uploaded
+        if ($entity instanceof File) {
+            $file = $entity;
+        }
+        elseif ($entity instanceof FileAware) {
+            $file = $entity->getFile();
+        }
         $this->assertTrue(
             file_exists($file->getAbsolutePath()),
             "Uploaded file doesn't exist. Expected it at ".$file->getAbsolutePath()
         );
+
+        // Clean up
+        $entities = $em
+            ->getRepository($entityClass)
+            ->findAll();
+        foreach ($entities as $entity) {
+            if ($entity instanceof File) {
+                $file = $entity;
+            }
+            elseif ($entity instanceof FileAware) {
+                $file = $entity->getFile();
+            }
+            $file->removeUpload();
+        }
     }
 
     /**
