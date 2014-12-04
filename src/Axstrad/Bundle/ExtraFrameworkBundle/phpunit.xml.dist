@@ -3,7 +3,7 @@
 <phpunit bootstrap="vendor/autoload.php"
          backupGlobals="false"
          backupStaticAttributes="false"
-         strict="false"
+         strict="true"
          verbose="false">
 
     <testsuites>
