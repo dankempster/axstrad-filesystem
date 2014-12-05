@@ -12,6 +12,7 @@ env:
   # - SYMFONY_VERSION="3.0.*@dev"
 before_script:
   - export COMPOSER_PATH=$(which composer)
+  - echo ${COMPOSER_PATH}
   - php -d gc_enabled=0 ${COMPOSER_PATH} -- require symfony/console:${SYMFONY_VERSION} symfony/framework-bundle:${SYMFONY_VERSION} --prefer-dist
 script:
   # - phpunit -c phpunit.dist.xml
