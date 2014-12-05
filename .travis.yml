@@ -11,10 +11,10 @@ env:
   - SYMFONY_VERSION="2.7.*@dev"
   # - SYMFONY_VERSION="3.0.*@dev"
 before_script:
-  - export COMPOSER_PATH=$(which composer)
-  - echo ${COMPOSER_PATH}
+  # - export COMPOSER_PATH=$(which composer)
+  # - echo ${COMPOSER_PATH}
   # - php -d zend.gc_enabled=0 ${COMPOSER_PATH} -- require symfony/console:${SYMFONY_VERSION} symfony/framework-bundle:${SYMFONY_VERSION} --prefer-dist
-  - php -d zend.gc_enabled=0 /home/travis/.phpenv/shims/composer -- require symfony/console:${SYMFONY_VERSION} symfony/framework-bundle:${SYMFONY_VERSION} --prefer-dist
+  - composer require symfony/console:${SYMFONY_VERSION} symfony/framework-bundle:${SYMFONY_VERSION} --prefer-dist
 script:
   # - phpunit -c phpunit.dist.xml
   - php ./vendor/phpunit/phpunit/phpunit --coverage-clover=coverage.clover
