@@ -1,4 +1,5 @@
 vendor/
+phpunit.xml
 
 # Build Artifacts
 cache.properties

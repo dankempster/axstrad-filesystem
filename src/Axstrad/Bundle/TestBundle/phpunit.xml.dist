@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="vendor/autoload.php"
+<phpunit bootstrap="./vendor/autoload.php"
          backupGlobals="false"
          backupStaticAttributes="false"
+         colors="true"
          strict="true"
          verbose="false">
 
     <testsuites>
-        <testsuite name="Axstrad\Bundle\ExtraFrameworkBundle">
-            <directory suffix="Test.php">Tests/</directory>
+        <testsuite name="Axstrad\TestBundle">
+            <file>./Functional/WebTestCase.php</file>
         </testsuite>
     </testsuites>
 
     <!-- <logging>
         <log type="coverage-html"
              target="build/coverage"
-             title="BankAccount"
+             title="Axstrad Library"
              charset="UTF-8"
              yui="true"
              highlight="true"
@@ -30,7 +31,6 @@
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
             <exclude>
-                <directory>./Tests</directory>
                 <directory>./vendor</directory>
             </exclude>
         </whitelist>

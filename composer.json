@@ -8,7 +8,6 @@
         {
             "name": "Dan Kempster",
             "email": "dev@dankempster.co.uk",
-            "homepage": "http://www.dankempster.co.uk",
             "role": "Developer"
         }
     ],
@@ -54,7 +53,6 @@
     },
 
     "provides": {
-        "axstrad/filesystem": "",
-        "axstrad/extra-framework-bundle": ""
+        "axstrad/test-bundle": "dev-developer@dev"
     }
 }
