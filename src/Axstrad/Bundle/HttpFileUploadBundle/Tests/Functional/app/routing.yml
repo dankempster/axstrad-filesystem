@@ -1,0 +1,14 @@
+test:
+    pattern: /upload-file
+    defaults:
+        _controller: AxstradTestHttpFileUploadBundle:Default:uploadFile
+
+test2:
+    pattern: /create-image
+    defaults:
+        _controller: AxstradTestHttpFileUploadBundle:Default:createImage
+
+test3:
+    pattern: /create-page
+    defaults:
+        _controller: AxstradTestHttpFileUploadBundle:Default:createPage

@@ -62,6 +62,14 @@
             <directory suffix="Test.php">./src/Axstrad/Bundle/SeoBundle/Tests/</directory>
         </testsuite>
 
+        <testsuite name="Axstrad\HttpFileUploadBundle">
+            <directory suffix="Test.php">./src/Axstrad/Bundle/HttpFileUploadBundle/Tests/</directory>
+        </testsuite>
+
+        <testsuite name="Axstrad\HttpFileUploadAdminBundle">
+            <directory suffix="Test.php">./src/Axstrad/Bundle/HttpFileUploadAdminBundle/Tests/</directory>
+        </testsuite>
+
         <testsuite name="Axstrad\PageBundle">
             <directory suffix="Test.php">./src/Axstrad/Bundle/PageBundle/Tests/</directory>
         </testsuite>

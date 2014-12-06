@@ -1,0 +1,94 @@
+imports:
+    - { resource: parameters.yml }
+
+framework:
+    test:            ~
+    session:
+        storage_id: session.storage.mock_file
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/routing.yml"
+    form:            true
+    default_locale:  "%locale%"
+    templating:      { engines: ['twig'] }
+
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        path:     "%database_path%"
+        memory:   "%database_memory%"
+        charset:  UTF8
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        metadata_cache_driver: array
+        query_cache_driver: array
+        result_cache_driver: array
+        auto_mapping: true
+        mappings:
+            axstrad_orm:
+                type: yml
+                prefix: Axstrad\Component\DoctrineOrm\Entity
+                dir: "%kernel.root_dir%/../../../../../Component/DoctrineOrm/config"
+                alias: AxstradOrm
+                is_bundle: false
+            axstrad_content:
+                type: yml
+                prefix: Axstrad\Component\Content\Orm
+                dir: "%kernel.root_dir%/../../../../../Component/Content/config/Orm"
+                alias: AxstradContent
+                is_bundle: false
+            axstrad_page:
+                type: yml
+                prefix: Axstrad\Component\Page\Entity
+                dir: "%kernel.root_dir%/../../../../../Component/Page/config"
+                alias: AxstradPage
+
+sonata_block:
+    default_contexts: [admin]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        in_memory:
+            memory:
+                users:
+                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            pattern: ^/
+            anonymous: ~
+            form_login:
+                login_path: _demo_login
+                check_path: _demo_login_check
+                default_target_path: /demo
+                always_use_default_target_path: true
+            logout:
+                path: /demo/logout
+
+    access_control:
+        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

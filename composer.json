@@ -22,15 +22,18 @@
         "sonata-project/admin-bundle": "~2.3",
         "sonata-project/core-bundle": "~2.2",
         "sonata-project/doctrine-orm-admin-bundle": "2.3.*",
+        "sonata-project/seo-bundle": "~1.1",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
-        "symfony/symfony": "~2.3",
-        "symfony-cmf/seo-bundle": "1.1.*@dev",
+        "symfony-cmf/seo-bundle": "~1",
+        "symfony/symfony": "~2.3,<2.6",
         "twig/twig": "~1"
     },
     "require-dev": {
         "burgov/key-value-form-bundle": "~1.0",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
-        "phpunit/phpunit": "~4.1"
+        "mikey179/vfsStream": "~1.4",
+        "phpunit/phpunit": "~4.1",
+        "symfony/monolog-bundle": "~2"
     },
 
     "autoload": {

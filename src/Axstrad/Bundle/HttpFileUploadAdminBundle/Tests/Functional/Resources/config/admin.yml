@@ -1,0 +1,36 @@
+services:
+    axstrad.test.admin.http_file_upload.file_admin:
+        parent: axstrad.http_file_upload.file_admin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "File" }
+        arguments:
+            - ~
+            - Axstrad\Bundle\HttpFileUploadAdminBundle\Tests\Functional\Entity\File
+            - ~
+        calls:
+            - ["setBaseRouteName", ["file"]]
+            - ["setBaseRoutePattern", ["axstrad/testhttpfileupload/file"]]
+    axstrad.test.admin.http_file_upload.image_admin:
+        class: Axstrad\Bundle\HttpFileUploadAdminBundle\Tests\Functional\Admin\ImageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Image" }
+        arguments:
+            - ~
+            - Axstrad\Bundle\HttpFileUploadAdminBundle\Tests\Functional\Entity\Image
+            - ~
+        calls:
+            - ["setBaseRouteName", ["image"]]
+            - ["setBaseRoutePattern", ["axstrad/testhttpfileupload/image"]]
+    axstrad.test.admin.http_file_upload.page_admin:
+        class: Axstrad\Bundle\HttpFileUploadAdminBundle\Tests\Functional\Admin\PageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Page" }
+        arguments:
+            - ~
+            - Axstrad\Bundle\HttpFileUploadAdminBundle\Tests\Functional\Entity\Page
+            - ~
+        calls:
+            - ["setBaseRouteName", ["page"]]
+            - ["setBaseRoutePattern", ["axstrad/testhttpfileupload/page"]]
+            - ["setObjectManager", ["@doctrine.orm.entity_manager"]]
+

@@ -1,0 +1,4 @@
+services:
+    axstrad.http_file_upload.file_admin:
+        class: Axstrad\Bundle\HttpFileUploadAdminBundle\Admin\FileAdmin
+        abstract: true
