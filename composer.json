@@ -1,7 +1,7 @@
 {
     "name": "axstrad/axstrad",
     "type": "library",
-    "description": "The Axstrad PHP Library",
+    "description": "The Axstrad PHP Library develpoment bundle",
     "keywords": [],
     "license": "GPL-2.0",
     "authors": [
@@ -53,6 +53,6 @@
     },
 
     "provides": {
-        "axstrad/test-bundle": "dev-developer@dev"
+        "axstrad/test-bundle": "self.version"
     }
 }
