@@ -1,6 +1,9 @@
+parameters:
+    axstrad.admin.page.class: Axstrad\Bundle\PageAdminBundle\Admin\PageAdmin
+
 services:
     axstrad.admin.page:
-        class: Axstrad\Bundle\PageAdminBundle\Admin\PageAdmin
+        class: %axstrad.admin.page.class%
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Page" }
         arguments:
