@@ -27,6 +27,10 @@
             <file>./src/Axstrad/Component/Test/MockedIteratorTest.php</file>
         </testsuite>
 
+        <testsuite name="Axstrad\Symfony\EventDispatcher">
+            <directory suffix="Test.php">./src/Axstrad/Symfony/EventDispatcher/Tests</directory>
+        </testsuite>
+
         <testsuite name="Axstrad\Common">
             <directory suffix="Test.php">./src/Axstrad/Common/Tests/Exception</directory>
             <directory suffix="Test.php">./src/Axstrad/Common/Tests/Util</directory>
