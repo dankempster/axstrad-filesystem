@@ -7,6 +7,10 @@
          strict="true"
          verbose="false">
 
+    <php>
+        <ini name="xdebug.max_nesting_level" value="200" />
+    </php>
+
     <testsuites>
         <testsuite name="Axstrad\Common\Util\ArrayUtil">
             <file>./src/Axstrad/Common/Tests/Util/ArrayUtil/DecompilePathTest.php</file>
