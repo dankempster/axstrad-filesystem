@@ -27,6 +27,10 @@
             <file>./src/Axstrad/Component/Test/MockedIteratorTest.php</file>
         </testsuite>
 
+        <testsuite name="Axstrad\Symfony\Filesystem">
+            <directory suffix="Test.php">./src/Axstrad/Symfony/Filesystem/Tests/</directory>
+        </testsuite>
+
         <testsuite name="Axstrad\Common">
             <directory suffix="Test.php">./src/Axstrad/Common/Tests/Exception</directory>
             <directory suffix="Test.php">./src/Axstrad/Common/Tests/Util</directory>
@@ -36,10 +40,6 @@
             <file>./src/Axstrad/Common/Tests/Traits/NullableNameTraitTest.php</file>
             <file>./src/Axstrad/Common/Tests/Traits/TitleTraitTest.php</file>
             <file>./src/Axstrad/Common/Tests/Traits/NullableTitleTraitTest.php</file>
-        </testsuite>
-
-        <testsuite name="Axstrad\Filesystem">
-            <directory suffix="Test.php">./src/Axstrad/Component/Filesystem/Tests/</directory>
         </testsuite>
 
         <testsuite name="Axstrad\OptionsResolver">
