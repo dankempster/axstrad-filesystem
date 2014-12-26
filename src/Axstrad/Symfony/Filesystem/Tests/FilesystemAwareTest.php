@@ -12,11 +12,11 @@
  * @subpackage Tests
  * @subpackage Tests\Traits
  */
-namespace Axstrad\Component\Filesystem\Tests;
+namespace Axstrad\Symfony\Filesystem\Tests;
 
 
 /**
- * Axstrad\Component\Filesystem\Tests\FilesystemAwareTest
+ * Axstrad\Symfony\Filesystem\Tests\FilesystemAwareTest
  *
  * @group unittests
  */

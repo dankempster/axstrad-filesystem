@@ -1,8 +1,8 @@
 {
-    "name": "axstrad/filesystem",
-    "description": "Additional class for Symfony/Filesystem",
-    "type": "library",
-    "keywords": ["filesystem"],
+    "name": "axstrad/symfony-filesystem",
+    "description": "Traits for Symfony/Filesystem",
+    "type": "component",
+    "keywords": ["filesystem", "symfony"],
     "license": "GPL-2.0",
     "authors": [
         {
@@ -19,7 +19,7 @@
 
     "autoload": {
         "psr-0": {
-            "Axstrad\\Component\\Filesystem": ""
+            "Axstrad\\Symfony\\Filesystem": ""
         }
     },
 

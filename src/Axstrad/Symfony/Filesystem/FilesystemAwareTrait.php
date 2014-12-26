@@ -11,13 +11,13 @@
  * @package Axstrad\Common
  * @subpackage Traits
  */
-namespace Axstrad\Component\Filesystem;
+namespace Axstrad\Symfony\Filesystem;
 
 use Symfony\Component\Filesystem\Filesystem;
 
 
 /**
- * Axstrad\Component\Filesystem\FilesystemAwareTrait
+ * Axstrad\Symfony\Filesystem\FilesystemAwareTrait
  */
 trait FilesystemAwareTrait
 {

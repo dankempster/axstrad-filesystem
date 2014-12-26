@@ -11,13 +11,13 @@
  * @package Axstrad\Common
  * @subpackage Traits
  */
-namespace Axstrad\Component\Filesystem\Tests;
+namespace Axstrad\Symfony\Filesystem\Tests;
 
-use Axstrad\Component\Filesystem\FilesystemAwareTrait;
+use Axstrad\Symfony\Filesystem\FilesystemAwareTrait;
 
 
 /**
- * Axstrad\Component\Filesystem\Tests\FilesystemAwareTestClass
+ * Axstrad\Symfony\Filesystem\Tests\FilesystemAwareTestClass
  */
 class FilesystemAwareTestClass
 {
