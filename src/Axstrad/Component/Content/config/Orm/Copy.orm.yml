@@ -1,6 +1,0 @@
-Axstrad\Component\Content\Orm\Copy:
-    type: mappedSuperclass
-    fields:
-        copy:
-            type: text
-

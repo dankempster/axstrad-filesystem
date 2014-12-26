@@ -1,5 +1,0 @@
-Axstrad\Bundle\HttpFileUploadBundle\Model\BaseFile:
-    properties:
-        file:
-            - File:
-                maxSize: 2000000

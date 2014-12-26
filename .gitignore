@@ -1,8 +1,0 @@
-vendor/
-phpunit.xml
-
-# Build Artifacts
-cache.properties
-build/
-!build/php*.xml
-

@@ -1,6 +1,0 @@
-<ruleset name="Axstrad Code Standard">
-    <description>Code standard for all code under the Axstrad namespace.</description>
-
-    <rule ref="PSR1"/>
-    <rule ref="PSR2"/>
-</ruleset>
