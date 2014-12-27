@@ -109,6 +109,7 @@
                 <directory>./src/Axstrad/Bundle/*/Tests</directory>
                 <directory>./src/Axstrad/Component/*/Tests</directory>
                 <directory>./src/Axstrad/Component/Test/Example</directory>
+                <directory>./src/Axstrad/Symfony/*/Tests</directory>
                 <directory>./vendor</directory>
             </exclude>
         </whitelist>
