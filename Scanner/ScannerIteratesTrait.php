@@ -2,6 +2,7 @@
 namespace Axstrad\Component\Filesystem\Scanner;
 
 use Axstrad\Component\Filesystem\Exception\InvalidArgumentException;
+use Axstrad\Component\Filesystem\Exception\MissingIteratorException;
 use Axstrad\Component\Filesystem\FileBag;
 use Axstrad\Component\Filesystem\FileBag\BaseBag;
 use DirectoryIterator;
@@ -56,7 +57,7 @@ trait ScannerIteratesTrait
     protected function throwExceptionIfNoIterator()
     {
         if ($this->iterator === null) {
-            throw new MissingDirectoryIteratorException(
+            throw new MissingIteratorException(
                 "You must set the DirectoryIterator before attempting to scan"
             );
         }

@@ -2,7 +2,7 @@
 namespace Axstrad\Component\Filesystem\Tests\Unit\Scanner;
 
 use Axstrad\Component\Test\TraitTestCase;
-
+use Axstrad\Component\Filesystem\Scanner\ScannerIteratesTrait;
 
 /**
  * Axstrad\Component\Filesystem\Tests\Unit\Scanner\ScannerIteratesTraitTest
@@ -11,6 +11,9 @@ use Axstrad\Component\Test\TraitTestCase;
  */
 class ScannerIteratesTraitTest extends TraitTestCase
 {
+    use ScannerIteratesTrait;
+
+
     public function setUp()
     {
         $this->fixture = $this->getMockForTrait('Axstrad\Component\Filesystem\Scanner\ScannerIteratesTrait');
@@ -41,5 +44,14 @@ class ScannerIteratesTraitTest extends TraitTestCase
     public function testSetIteratorThrowsException1()
     {
         $this->fixture->setIterator($this->getMockForAbstractClass('Iterator'));
+    }
+
+    /**
+     * @covers Axstrad\Component\Filesystem\Scanner\ScannerIteratesTrait::throwExceptionIfNoIterator
+     * @expectedException Axstrad\Component\Filesystem\Exception\MissingIteratorException
+     */
+    public function testthrowExceptionIfNoIterator()
+    {
+        $this->throwExceptionIfNoIterator();
     }
 }
