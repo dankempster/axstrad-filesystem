@@ -78,4 +78,62 @@ class BaseIteratorScannerTest extends TestCase
             );
         }
     }
+
+    /**
+     * @depends testWithDirectoryIterator
+     */
+    public function testWithFileClassnameSet()
+    {
+        $this->fixture->setIterator(new DirectoryIterator(
+            vfsStream::url('root/test-files')
+        ));
+        $this->fixture->setFileClassname(
+            'Axstrad\Component\Filesystem\File\BaseFile'
+        );
+
+        $fileBag = $this->fixture->scan();
+        $this->assertContainsOnlyInstancesOf(
+            'Axstrad\Component\Filesystem\File\BaseFile',
+            $fileBag->toArray()
+        );
+    }
+
+    /**
+     * @depends testWithDirectoryIterator
+     */
+    public function testWithFileBagTypeSetToInfo()
+    {
+        $this->fixture->setIterator(new DirectoryIterator(
+            vfsStream::url('root/test-files')
+        ));
+        $this->fixture->setBagType(
+            BaseIteratorScanner::BAG_INFO
+        );
+
+        $this->assertInstanceOf(
+            'Axstrad\Component\Filesystem\FileBag\SplFileInfoBag',
+            $this->fixture->scan()
+        );
+    }
+
+    /**
+     * @depends testWithFileClassnameSet
+     */
+    public function testWithFileBagTypeSetToFile()
+    {
+        $this->fixture->setIterator(new DirectoryIterator(
+            vfsStream::url('root/test-files')
+        ));
+        $this->fixture->setFileClassname(
+            'Axstrad\Component\Filesystem\File\BaseFile'
+        );
+        $this->fixture->setBagType(
+            BaseIteratorScanner::BAG_FILE
+        );
+
+        $this->assertInstanceOf(
+            'Axstrad\Component\Filesystem\FileBag\FileBag',
+            $this->fixture->scan()
+        );
+    }
 }
