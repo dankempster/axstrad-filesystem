@@ -7,13 +7,13 @@ use SplFileInfo;
 
 
 /**
- * Axstrad\Component\Filesystem\FileBag\FileBag
+ * Axstrad\Component\Filesystem\FileBag\SplFileInfoBag
  *
  * Concrete implementation of {@see Axstrad\Component\Filesystem\FileBag
- * FileBag} for {@see Axstrad\Component\Filesystem\File File}
- * objects.
+ * FileBag} for {@link http://php.net/manual/en/class.splfileinfo.php
+ * SplFileInfo} objects.
  */
-class FileBag extends BaseBag
+class SplFileInfoBag extends BaseBag
 {
     /**
      * Add one or more files to the bag.
@@ -21,14 +21,14 @@ class FileBag extends BaseBag
      * This method will traverse a collection tree recursivley adding all the
      * File obejects it finds.
      *
-     * @param FileBag||File[]|File $file The File or
+     * @param FileBag||SplFileInfo[]|SplFileInfo $file The File or
      *        collection of Files to add
      * @return boolean Always true.
      * @see set
      */
     public function add($file)
     {
-        if ($file instanceof SplFileInfo) {
+        if ($file instanceof File) {
             throw InvalidArgumentException::create(
                 sprintf(
                     '%1$s/FileBag|%1$s/File[]|%1$s/File',
