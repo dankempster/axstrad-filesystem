@@ -2,24 +2,23 @@
 namespace Axstrad\Component\Filesystem\Tests\Functional\FileBag;
 
 use Axstrad\Component\Filesystem\FileBag\BaseBag;
+use Axstrad\Component\Filesystem\Tests\TestCase;
 
 
 /**
- * @group functional
+ * @group unit
+ * @uses Axstrad\Component\Filesystem\FileBag\BaseBag::add
  */
 class BaseBagConstructionTest extends TestCase
 {
-    protected $fixtureClass = 'Axstrad\Component\Filesystem\FileBag\BaseBag';
-
-
     /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::__construct
      * @dataProvider canAddFileCollectionsDataProvider
      * @depends Axstrad\Component\Filesystem\Tests\Functional\FileBag\BaseBagAddTest::testCanAddFileCollections
      */
     public function testCanConstructWithFileCollections($fileStubs)
     {
-        $classNamne = $this->fixtureClass;
-        $this->fixture = new $classNamne($fileStubs);
+        $this->fixture = new BaseBag($fileStubs);
 
         foreach ($fileStubs as $fileStub) {
             $this->assertAttributeContains(
@@ -35,7 +34,10 @@ class BaseBagConstructionTest extends TestCase
      */
     public function canAddFileCollectionsDataProvider()
     {
-        $files = $this->getFileStubs();
+        $files = array(
+            $this->createSplFileInfo(),
+            $this->createFileStub(),
+        );
 
         $iterator = new \ArrayIterator($files);
 
@@ -49,14 +51,6 @@ class BaseBagConstructionTest extends TestCase
             [$files],
             [$iterator],
             [$mockBag],
-        );
-    }
-
-    protected function getFileStubs()
-    {
-        return array(
-            new \SplFileInfo(__DIR__.'/../../_asset/file.txt'),
-            $this->getMockForAbstractClass('Axstrad\Component\Filesystem\File'),
         );
     }
 }

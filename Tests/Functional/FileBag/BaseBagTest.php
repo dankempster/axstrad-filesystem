@@ -2,15 +2,14 @@
 namespace Axstrad\Component\Filesystem\Tests\Functional\FileBag;
 
 use ArrayIterator;
-use Axstrad\Component\Test\TraitTestCase;
-use Axstrad\Component\Filesystem\FileBag\BaseBag;
+use Axstrad\Component\Filesystem\Tests\TestCase;
 
 
 /**
- * @group functional
+ * @group unit
  * @depends Axstrad\Component\Filesystem\Tests\Functional\FileBag\BaseBagConstructionTest::testCanConstructWithFileCollections
  */
-class BaseBagTest extends TraitTestCase
+class BaseBagTest extends TestCase
 {
     protected $fixtureClass = 'Axstrad\Component\Filesystem\FileBag\BaseBag';
 
@@ -31,18 +30,14 @@ class BaseBagTest extends TraitTestCase
     protected function getFileStubs()
     {
         return array(
-            new \SplFileInfo(__DIR__.'/../../_assers/a-file.txt'),
-            $this->getMockForAbstractClass('Axstrad\Component\Filesystem\File'),
-            $this->getMockForAbstractClass('Axstrad\Component\Filesystem\File'),
+            $this->createSplFileInfo(),
+            $this->createFileStub(),
+            $this->createFileStub(),
         );
     }
 
-    protected function createFileStub()
-    {
-        return $this->getMockForAbstractClass('Axstrad\Component\Filesystem\File');
-    }
-
     /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::remove
      * @dataProvider removeFileDataProvider
      */
     public function testRemoveFile($fileStub)
@@ -69,6 +64,7 @@ class BaseBagTest extends TraitTestCase
     }
 
     /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::remove
      * @dataProvider removeFileReturnsBooleanDataProvider
      */
     public function testRemoveFileReturnsBoolean($fileStub, $expectedReturn)
@@ -98,6 +94,7 @@ class BaseBagTest extends TraitTestCase
     }
 
     /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::remove
      * @dataProvider removeFileDataProviderWithCollectionDataProvider
      */
     public function testRemoveFileWithCollections($fileStubs, $type)
@@ -142,6 +139,7 @@ class BaseBagTest extends TraitTestCase
     }
 
     /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::remove
      * @dataProvider removeFileReturnsBooleanWithCollectionsDataProvider
      */
     public function testRemoveFileReturnsBooleanWithCollections($fileStubs, $type, $expectedReturn)
@@ -179,6 +177,7 @@ class BaseBagTest extends TraitTestCase
     }
 
     /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::has
      * @dataProvider removeFileReturnsBooleanDataProvider
      */
     public function testHasFileReturnsBoolean($fileStub, $expectedReturn)
@@ -194,6 +193,7 @@ class BaseBagTest extends TraitTestCase
     }
 
     /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::has
      * @dataProvider removeFileReturnsBooleanWithCollectionsDataProvider
      */
     public function testHasFileReturnsBooleanWithCollections($fileStubs, $type, $expectedReturn)
@@ -214,6 +214,9 @@ class BaseBagTest extends TraitTestCase
         );
     }
 
+    /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::count
+     */
     public function testCount()
     {
         $this->assertEquals(
@@ -223,7 +226,9 @@ class BaseBagTest extends TraitTestCase
     }
 
     /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::clear
      * @depends testCount
+     * @uses Axstrad\Component\Filesystem\FileBag\BaseBag::count
      */
     public function testClearEmptiesBag()
     {
@@ -236,7 +241,9 @@ class BaseBagTest extends TraitTestCase
     }
 
     /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::set
      * @depends testCount
+     * @uses Axstrad\Component\Filesystem\FileBag\BaseBag::count
      */
     public function testSetMethodEmptiesBag()
     {
@@ -249,6 +256,7 @@ class BaseBagTest extends TraitTestCase
     }
 
     /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::set
      * @depends testSetMethodEmptiesBag
      */
     public function testSetMethodPopulatesBag()
@@ -264,16 +272,25 @@ class BaseBagTest extends TraitTestCase
         }
     }
 
+    /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::isEmpty
+     */
     public function testIsEmptyWhenNotEmpty()
     {
         $this->assertFalse($this->fixture->isEmpty());
     }
 
+    /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::isNotEmpty
+     */
     public function testIsNotEmptyWhenNotEmpty()
     {
         $this->assertTrue($this->fixture->isNotEmpty());
     }
 
+    /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::toArray
+     */
     public function testToArrayMethod()
     {
         $this->assertSame(
@@ -282,6 +299,9 @@ class BaseBagTest extends TraitTestCase
         );
     }
 
+    /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::getIterator
+     */
     public function testGetIteratorReturnsIterator()
     {
         $this->assertInstanceOf(
@@ -291,6 +311,7 @@ class BaseBagTest extends TraitTestCase
     }
 
     /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::getIterator
      * @depends testGetIteratorReturnsIterator
      */
     public function testCanUseIteratorToIterateContents()
@@ -305,6 +326,9 @@ class BaseBagTest extends TraitTestCase
         );
     }
 
+    /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::transfer
+     */
     public function testTransferMethod()
     {
         $fileStub = $this->fileStubs[0];
@@ -326,6 +350,9 @@ class BaseBagTest extends TraitTestCase
         );
     }
 
+    /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::transfer
+     */
     public function testTransferMethodReturnsTrue()
     {
         $this->assertTrue(
@@ -336,6 +363,9 @@ class BaseBagTest extends TraitTestCase
         );
     }
 
+    /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::transfer
+     */
     public function testTransferMethodReturnsFalseIfFileNotInBag()
     {
         $this->assertFalse(
@@ -346,6 +376,9 @@ class BaseBagTest extends TraitTestCase
         );
     }
 
+    /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::merge
+     */
     public function testMergeMethod()
     {
         $fileStub = $this->createFileStub();
@@ -367,6 +400,9 @@ class BaseBagTest extends TraitTestCase
         );
     }
 
+    /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::merge
+     */
     public function testMergeMethodReturnsSelf()
     {
         $className = $this->fixtureClass;

@@ -1,23 +1,19 @@
 <?php
 namespace Axstrad\Component\Filesystem\Tests\Functional\FileBag;
 
+use Axstrad\Component\Filesystem\FileBag\FileBag;
+use Axstrad\Component\Test\TestCase;
+
 
 /**
- * @group functional
- * @depends Axstrad\Component\Filesystem\Tests\Functional\FileBag\FileBagConstructionTest::testCanConstructWithFileCollections
+ * @group unit
+ * @uses Axstrad\Component\Filesystem\FileBag\BaseBag
  */
-class FileBagTest extends BaseBagTest
+class FileBagTest extends TestCase
 {
-    protected $fixtureClass = 'Axstrad\Component\Filesystem\FileBag\FileBag';
-
-
-    protected function getFileStubs()
+    public function setUp()
     {
-        return array(
-            $this->getMockForAbstractClass('Axstrad\Component\Filesystem\File'),
-            $this->getMockForAbstractClass('Axstrad\Component\Filesystem\File'),
-            $this->getMockForAbstractClass('Axstrad\Component\Filesystem\File'),
-        );
+        $this->fixture = new FileBag;
     }
 
     /**

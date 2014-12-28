@@ -5,6 +5,7 @@ use Axstrad\Component\Filesystem\File;
 use Axstrad\Component\Filesystem\FileBag as FileBagInterface;
 use Axstrad\Component\Filesystem\Exception\InvalidArgumentException;
 use Axstrad\Component\Filesystem\Exception\UnexpectedValueException;
+use DirectoryIterator;
 use Doctrine\Common\Collections\ArrayCollection;
 use SplFileInfo;
 use Traversable;
@@ -52,7 +53,33 @@ class BaseBag implements
      */
     public function add($file)
     {
-        if (($isArray = is_array($file)) || $file instanceof Traversable) {
+        // Need to convert DirectorIterators to SplFileInfo objects as it
+        // appears ArrayCollection can't distinguish between them.
+        if ($file instanceof DirectoryIterator &&
+            ! $file->isDir() &&
+            ! $file->isDot() &&
+            ! $file->getFilename() != '..'
+        ) {
+            $file = new \SplFileInfo($file->getPathname());
+        }
+
+        $fileInfo = $file instanceof File
+            ? $file->getInfo()
+            : $file
+        ;
+
+        if ($fileInfo instanceof SplFileInfo) {
+            if (false === $fileInfo->isDir()
+                && false === $this->files->contains($file)
+            ) {
+                $this->files->add($file);
+            }
+            return true;
+        }
+        elseif (
+            ($isArray = is_array($file)) ||
+            $file instanceof Traversable
+        ) {
             foreach ($file as $key => $f) {
                 try {
                     $this->add($f);
@@ -82,28 +109,19 @@ class BaseBag implements
                     );
                 }
             }
-        }
-        elseif ($file instanceof SplFileInfo
-            ||  $file instanceof File
-        ) {
-            if (!$this->files->contains($file)) {
-                $this->files->add($file);
-            }
-        }
-        else {
-            throw InvalidArgumentException::create(
-                implode('|', array(
-                    'Axstrad\Component\Filesystem\FileBag',
-                    'SplFileInfo[]',
-                    'Axstrad\Component\Filesystem\File[]',
-                    'SplFileInfo',
-                    'Axstrad\Component\Filesystem\File'
-                )),
-                $file
-            );
+            return true;
         }
 
-        return true;
+        throw InvalidArgumentException::create(
+            implode('|', array(
+                'Axstrad\Component\Filesystem\FileBag',
+                'SplFileInfo[]',
+                'Axstrad\Component\Filesystem\File[]',
+                'SplFileInfo',
+                'Axstrad\Component\Filesystem\File'
+            )),
+            $file
+        );
     }
 
     /**

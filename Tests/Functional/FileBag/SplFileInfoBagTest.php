@@ -1,31 +1,23 @@
 <?php
 namespace Axstrad\Component\Filesystem\Tests\Functional\FileBag;
 
+use Axstrad\Component\Filesystem\FileBag\SplFileInfoBag;
+use Axstrad\Component\Test\TestCase;
+
 
 /**
- * @group functional
- * @depends Axstrad\Component\Filesystem\Tests\Functional\FileBag\SplFileInfoBagConstructionTest::testCanConstructWithFileCollections
+ * @group unit
+ * @uses Axstrad\Component\Filesystem\FileBag\BaseBag
  */
-class SplFileInfoBagTest extends BaseBagTest
+class SplFileInfoBagTest extends TestCase
 {
-    protected $fixtureClass = 'Axstrad\Component\Filesystem\FileBag\SplFileInfoBag';
-
-
-    protected function getFileStubs()
+    public function setUp()
     {
-        return array(
-            new \SplFileInfo(__DIR__.'/../../_asset/file.txt'),
-            new \SplFileInfo(__DIR__.'/../../_asset/file.txt'),
-            new \SplFileInfo(__DIR__.'/../../_asset/file.txt'),
-        );
-    }
-
-    protected function createFileStub()
-    {
-        return new \SplFileInfo(__DIR__.'/../../_asset/file.txt');
+        $this->fixture = new SplFileInfoBag;
     }
 
     /**
+     * @covers Axstrad\Component\Filesystem\FileBag\SplFileInfoBag::add
      * @expectedException Axstrad\Component\Filesystem\Exception\InvalidArgumentException
      */
     public function testCanNotAddFileObject()

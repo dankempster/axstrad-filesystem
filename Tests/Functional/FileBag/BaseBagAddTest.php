@@ -1,17 +1,25 @@
 <?php
 namespace Axstrad\Component\Filesystem\Tests\Functional\FileBag;
 
+use Axstrad\Component\Filesystem\FileBag\BaseBag;
+use Axstrad\Component\Filesystem\Tests\TestCase;
+
 
 /**
- * @group functional
+ * @group unit
+ * @uses Axstrad\Component\Filesystem\FileBag\BaseBag::__construct
  */
 class BaseBagAddTest extends TestCase
 {
-    protected $fixtureClass = 'Axstrad\Component\Filesystem\FileBag\BaseBag';
+    public function setUp()
+    {
+        $this->fixture = new BaseBag;
+    }
 
 
     /**
      * @dataProvider addFileDataProvider
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::add
      */
     public function testCanAddFileObjects($fileStub)
     {
@@ -28,16 +36,17 @@ class BaseBagAddTest extends TestCase
     {
         return array(
             array(
-                new \SplFileInfo(__DIR__.'/../_asset/file.txt'),
+                $this->createSplFileInfo(),
             ),
             array(
-                $this->getMockForAbstractClass('Axstrad\Component\Filesystem\File'),
+                $this->createFileStub()
             ),
         );
     }
 
     /**
      * @dataProvider canAddFileCollectionsDataProvider
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::add
      */
     public function testCanAddFileCollections($fileStubs)
     {
@@ -55,8 +64,8 @@ class BaseBagAddTest extends TestCase
     public function canAddFileCollectionsDataProvider()
     {
         $files = array(
-            new \SplFileInfo(__DIR__.'/../_asset/file.txt'),
-            $this->getMockForAbstractClass('Axstrad\Component\Filesystem\File'),
+            $this->createSplFileInfo(),
+            $this->createFileStub(),
         );
 
         $iterator = new \ArrayIterator($files);
@@ -76,6 +85,7 @@ class BaseBagAddTest extends TestCase
 
     /**
      * @dataProvider addDataProvider
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::add
      */
     public function testAddAlwaysReturnsTrue($fileStub)
     {
@@ -92,11 +102,17 @@ class BaseBagAddTest extends TestCase
         );
     }
 
+    /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::isEmpty
+     */
     public function testIsEmptyWhenEmpty()
     {
         $this->assertTrue($this->fixture->isEmpty());
     }
 
+    /**
+     * @covers Axstrad\Component\Filesystem\FileBag\BaseBag::isNotEmpty
+     */
     public function testIsNotEmptyWhenEmpty()
     {
         $this->fixture->clear();

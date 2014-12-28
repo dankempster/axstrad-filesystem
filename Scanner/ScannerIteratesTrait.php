@@ -1,14 +1,16 @@
 <?php
-namespace Axstrad\Component\Filesystem\Traits;
+namespace Axstrad\Component\Filesystem\Scanner;
 
 use Axstrad\Component\Filesystem\Exception\InvalidArgumentException;
+use Axstrad\Component\Filesystem\FileBag;
+use Axstrad\Component\Filesystem\FileBag\BaseBag;
 use DirectoryIterator;
 use Iterator;
 use OuterIterator;
 
 
 /**
- * Axstrad\Component\Filesystem\Traits\ScannerIteratesTrait
+ * Axstrad\Component\Filesystem\Scanner\ScannerIteratesTrait
  *
  * This trait provides the methods for the
  * {@see Axstrad\Component\Filesystem\ScannerIterates ScannerIterates
@@ -40,5 +42,23 @@ trait ScannerIteratesTrait
 
         $this->iterator = $iterator;
         return $this;
+    }
+
+    protected function iterateFiles()
+    {
+        $fileBag = new BaseBag;
+        foreach ($this->iterator as $file) {
+            $fileBag->add($file);
+        }
+        return $fileBag;
+    }
+
+    protected function throwExceptionIfNoIterator()
+    {
+        if ($this->iterator === null) {
+            throw new MissingDirectoryIteratorException(
+                "You must set the DirectoryIterator before attempting to scan"
+            );
+        }
     }
 }

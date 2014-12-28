@@ -1,7 +1,7 @@
 <?php
 namespace Axstrad\Component\Filesystem\Tests\Unit\FileBag;
 
-use Axstrad\Component\Test\TraitTestCase;
+use Axstrad\Component\Filesystem\Tests\TestCase;
 use Axstrad\Component\Filesystem\FileBag\BaseBag;
 
 
@@ -10,13 +10,13 @@ use Axstrad\Component\Filesystem\FileBag\BaseBag;
  * @uses Axstrad\Component\Filesystem\FileBag\BaseBag::__construct
  * @uses Axstrad\Component\Filesystem\FileBag\BaseBag::add
  */
-class BaseBagTest extends TraitTestCase
+class BaseBagTest extends TestCase
 {
     public function setUp()
     {
         $this->fileStubs = array(
-            new \SplFileInfo(__DIR__.'/../_asset/file.txt'),
-            $this->getMockForAbstractClass('Axstrad\Component\Filesystem\File'),
+            $this->createSplFileInfo(),
+            $this->createFileStub()
         );
 
         $this->fixture = new BaseBag($this->fileStubs);
