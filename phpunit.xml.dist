@@ -35,6 +35,10 @@
             <directory suffix="Test.php">./src/Axstrad/Symfony/EventDispatcher/Tests</directory>
         </testsuite>
 
+        <testsuite name="Axstrad\Symfony\Finder">
+            <directory suffix="Test.php">./src/Axstrad/Symfony/Finder/Tests</directory>
+        </testsuite>
+
         <testsuite name="Axstrad\Common">
             <directory suffix="Test.php">./src/Axstrad/Common/Tests/Exception</directory>
             <directory suffix="Test.php">./src/Axstrad/Common/Tests/Util</directory>
