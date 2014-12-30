@@ -3,7 +3,7 @@
     "description": "Additional class for Symfony/Filesystem",
     "type": "library",
     "keywords": ["filesystem"],
-    "license": "GPL-2.0",
+    "license": "MIT",
     "authors": [
         {
             "name": "Dan Kempster",
