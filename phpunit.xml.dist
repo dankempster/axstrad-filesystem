@@ -4,7 +4,7 @@
          backupGlobals="false"
          backupStaticAttributes="false"
          colors="true"
-         strict="true"
+         strict="false"
          verbose="false">
 
     <php>
@@ -29,6 +29,10 @@
 
         <testsuite name="Axstrad\Symfony\Filesystem">
             <directory suffix="Test.php">./src/Axstrad/Symfony/Filesystem/Tests/</directory>
+        </testsuite>
+
+        <testsuite name="Axstrad\Symfony\EventDispatcher">
+            <directory suffix="Test.php">./src/Axstrad/Symfony/EventDispatcher/Tests</directory>
         </testsuite>
 
         <testsuite name="Axstrad\Common">
@@ -88,7 +92,7 @@
     </testsuites>
 
     <logging>
-        <log type="coverage-html"
+        <!-- <log type="coverage-html"
              target="build/coverage"
              title="Axstrad Library"
              charset="UTF-8"
@@ -96,9 +100,9 @@
              highlight="true"
              lowUpperBound="35"
              highLowerBound="70"
-        />
-        <log type="coverage-clover" target="build/logs/clover.xml"/>
-        <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
+        /> -->
+        <!-- <log type="coverage-clover" target="build/logs/clover.xml"/> -->
+        <!-- <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/> -->
     </logging>
 
     <filter>
