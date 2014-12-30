@@ -12,7 +12,7 @@
          bootstrap="vendor/autoload.php"
 >
     <testsuites>
-        <testsuite name="Axstrad\Filesystem">
+        <testsuite name="Axstrad/Filesystem">
             <directory suffix="Test.php">./Tests</directory>
         </testsuite>
     </testsuites>
@@ -20,7 +20,7 @@
     <logging>
         <!-- <log type="coverage-html"
              target="./build/coverage"
-             title="Axstrad\Common"
+             title="Axstrad/Filesystem"
              charset="UTF-8"
              yui="true"
              highlight="true"

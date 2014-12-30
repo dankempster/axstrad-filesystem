@@ -17,15 +17,28 @@
         "symfony/filesystem": "~2.0"
     },
 
+    "require-dev": {
+        "axstrad/test": "0.1.*",
+        "phpunit/phpunit": "~4.1"
+    },
+
     "autoload": {
-        "psr-0": {
-            "Axstrad\\Component\\Filesystem": ""
+        "psr-4": {
+            "Axstrad\\Component\\Filesystem\\": ""
         }
     },
 
     "minimum-stability": "dev",
+    "prefer-stable": true,
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev",
+            "dev-develop": "0.2.x-dev"
+        }
+    },
 
     "archive": {
-        "exclude": ["!vendor", "Tests", "phpunit.xml*"]
+        "exclude": ["!vendor", "Tests", "phpunit.xml*", ".gitignore", ".travis.yml"]
     }
 }
