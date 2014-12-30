@@ -1,9 +1,9 @@
 {
     "name": "axstrad/filesystem",
-    "description": "A filesystem component with support for other Axstrad interfaces.",
-    "type": "component",
-    "keywords": ["filesystem", "axstrad"],
-    "license": "GPL-2.0",
+    "description": "Additional class for Symfony/Filesystem",
+    "type": "library",
+    "keywords": ["filesystem"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Dan Kempster",
@@ -13,7 +13,8 @@
     ],
 
     "require": {
-        "php": ">=5.4"
+        "php": ">=5.4",
+        "symfony/filesystem": "~2.0"
     },
 
     "autoload": {
