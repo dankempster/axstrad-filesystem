@@ -1,0 +1,44 @@
+{
+    "name": "axstrad/symfony",
+    "description": "Convenience abstract class and traits when using Symonfy'scComponents",
+    "type": "library",
+    "keywords": [],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dan Kempster",
+            "email": "dev@dankempster.co.uk",
+            "role": "Developer"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.4",
+        "symfony/symfony": "~2.3"
+    },
+
+    "require-dev": {
+        "axstrad/test": "0.1.*",
+        "phpunit/phpunit": "~4.1"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Axstrad\\Symfony\\": ""
+        }
+    },
+
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev",
+            "dev-develop": "0.2.x-dev"
+        }
+    },
+
+    "archive": {
+        "exclude": ["!vendor", "Tests", "phpunit.xml*", ".gitignore", ".travis.yml"]
+    }
+}
