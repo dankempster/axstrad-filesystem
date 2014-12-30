@@ -7,17 +7,18 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Dan Kempster <dev@dankempster.co.uk>
- * @package Axstrad\Common
- * @subpackage Traits
+ * @copyright 2014-2015 Dan Kempster <dev@dankempster.co.uk>
  */
 namespace Axstrad\Symfony\Filesystem;
 
 use Symfony\Component\Filesystem\Filesystem;
 
-
 /**
  * Axstrad\Symfony\Filesystem\FilesystemAwareTrait
+ *
+ * @author Dan Kempster <dev@dankempster.co.uk>
+ * @package Axstrad\Symfony
+ * @subpackage Filesystem
  */
 trait FilesystemAwareTrait
 {
