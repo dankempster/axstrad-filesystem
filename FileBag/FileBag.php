@@ -34,7 +34,7 @@ class FileBag extends BaseBag
      * This method will traverse a collection tree recursivley adding all the
      * File obejects it finds.
      *
-     * @param FileBag||File[]|File $file The File or
+     * @param FileBag|File[]|File $file The File or
      *        collection of Files to add
      * @return boolean Always true.
      * @see set
