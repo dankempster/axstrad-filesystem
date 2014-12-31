@@ -1,0 +1,11 @@
+--- /dev/null
++++ /dev/null
+@@ -47,7 +47,7 @@
+     {
+         if (!$iterator instanceof DirectoryIterator &&
+             !$iterator instanceof OuterIterator
+-        ){
++        ) {
+             throw InvalidArgumentException::create(
+                 'DirectoryIterator|OuterIterator',
+                 $iterator

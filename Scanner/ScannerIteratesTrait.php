@@ -45,9 +45,9 @@ trait ScannerIteratesTrait
      */
     public function setIterator(Iterator $iterator)
     {
-        if (!$iterator instanceof DirectoryIterator &&
-            !$iterator instanceof OuterIterator
-        ){
+        if ( ! $iterator instanceof DirectoryIterator &&
+            ! $iterator instanceof OuterIterator
+        ) {
             throw InvalidArgumentException::create(
                 'DirectoryIterator|OuterIterator',
                 $iterator
