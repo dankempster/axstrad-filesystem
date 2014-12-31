@@ -64,10 +64,10 @@ class BaseIteratorScanner implements
      */
     public function setFileClassname($classname = null)
     {
-        if ($classname === null){
+        if ($classname === null) {
             $this->fileClass = null;
         }
-        elseif (!class_exists($classname)) {
+        elseif ( ! class_exists($classname)) {
             throw ClassDoesNotExistException::create($classname);
         }
         else {

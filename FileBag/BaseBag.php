@@ -163,7 +163,7 @@ class BaseBag implements
             $result = true;
             foreach ($file as $key => $f) {
                 try {
-                    if (!$this->remove($f)) {
+                    if ( ! $this->remove($f)) {
                         $result = false;
                     }
                 }
@@ -226,7 +226,7 @@ class BaseBag implements
         if (($isArray = is_array($file)) || $file instanceof Traversable) {
             foreach ($file as $key => $f) {
                 try {
-                    if (!$this->has($f)) {
+                    if ( ! $this->has($f)) {
                         return false;
                     }
                 }
@@ -308,7 +308,7 @@ class BaseBag implements
      */
     public function transfer($file, FileBagInterface $newBag)
     {
-        if (!$this->files->contains($file)) {
+        if ( ! $this->files->contains($file)) {
             return false;
         }
 

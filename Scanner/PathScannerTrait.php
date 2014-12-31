@@ -60,7 +60,7 @@ trait PathScannerTrait
     protected function throwExceptionIfPathNotExist()
     {
         $path = $this->getPath();
-        if (!file_exists($path)) {
+        if ( ! file_exists($path)) {
             throw InvalidPathException::create($path);
         }
     }
