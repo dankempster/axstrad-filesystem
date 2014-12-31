@@ -14,11 +14,14 @@
 
     "require": {
         "php": ">=5.4",
+        "axstrad/common": "0.1.*",
+        "doctrine/collections": "1.0.*",
         "symfony/filesystem": "~2.0"
     },
 
     "require-dev": {
         "axstrad/test": "0.1.*",
+        "mikey179/vfsStream": "~1.4",
         "phpunit/phpunit": "~4.1"
     },
 
