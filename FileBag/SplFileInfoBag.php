@@ -44,7 +44,7 @@ class SplFileInfoBag extends BaseBag
         if ($file instanceof File) {
             throw InvalidArgumentException::create(
                 sprintf(
-                    '%1$s/FileBag|%1$s/File[]|%1$s/File',
+                    '%1$s/FileBag|SplFileInfo[]|SplFileInfo',
                     __NAMESPACE__
                 ),
                 $file
