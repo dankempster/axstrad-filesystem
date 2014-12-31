@@ -34,34 +34,6 @@ class RecursiveScanner implements
     }
 
 
-    protected $path;
-
-
-    /**
-     * Get path
-     *
-     * @return string
-     * @see setPath
-     */
-    public function getPath()
-    {
-        return $this->path;
-    }
-
-    /**
-     * Set path
-     *
-     * @param  string $path
-     * @return self
-     * @see getPath
-     */
-    public function setPath($path)
-    {
-        $this->path = (string) $path;
-        return $this;
-    }
-
-
     /**
      * @return FileBag
      * @uses setIterator() To set the DirectoryIterator created from $path
