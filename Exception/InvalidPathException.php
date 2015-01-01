@@ -35,8 +35,7 @@ class InvalidPathException extends BaseInvalidArgumentException implements
         $path,
         $code = null,
         BaseException $previous = null
-    )
-    {
+    ) {
         $class = get_called_class();
         return new $class(
             sprintf("The path '%s' doesn't exist.", $path),
