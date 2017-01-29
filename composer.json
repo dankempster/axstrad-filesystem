@@ -22,8 +22,7 @@
     "require-dev": {
         "axstrad/test": "~0.1.0",
         "mikey179/vfsStream": "~1.4",
-        "phpunit/phpunit": "~4.1",
-        "satooshi/php-coveralls": "dev-master"
+        "phpunit/phpunit": "~4.1"
     },
 
     "autoload": {
