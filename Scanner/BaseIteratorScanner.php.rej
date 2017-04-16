@@ -1,0 +1,11 @@
+--- /dev/null
++++ /dev/null
+@@ -64,7 +64,7 @@
+      */
+     public function setFileClassname($classname = null)
+     {
+-        if ($classname === null){
++        if ($classname === null) {
+             $this->fileClass = null;
+         }
+         elseif (!class_exists($classname)) {
